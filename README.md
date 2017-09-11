@@ -1,2 +1,2 @@
-# agoncal-book-cdi
-Code of my future CDI MiniBook
+# agoncal-fascicle-jaxrs
+Code of my future CDI fascicle
