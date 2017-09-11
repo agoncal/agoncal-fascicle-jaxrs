@@ -1,0 +1,29 @@
+package org.agoncal.fascicle.jaxrs.writingservices.ex03;
+
+import org.agoncal.fascicle.jaxrs.writingservices.Book;
+import org.agoncal.fascicle.jaxrs.writingservices.Items;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
+/**
+ * @author Antonio Goncalves
+ * http://www.antoniogoncalves.org
+ * --
+ */
+// tag::adocsnippet[]
+@Path("/items")
+public class ItemRestService {
+
+  @GET
+  public Items getItems() {
+    // ...
+    // tag::adocsskip[]
+    Items items = new Items();
+    items.add(new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
+    items.add(new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
+    return items;
+    // end::adocsskip[]
+  }
+}
+// end::adocsnippet[]
