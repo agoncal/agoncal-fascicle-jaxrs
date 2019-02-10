@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- tag::adocHeader[] -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
@@ -6,7 +7,7 @@
   <groupId>org.agoncal.fascicle.jaxrs</groupId>
   <artifactId>getting-started</artifactId>
   <version>2.1</version>
-  <packaging>jar</packaging>
+  <!-- tag::adocSkip[] -->
   <name>JAX-RS :: Getting Started</name>
 
   <parent>
@@ -14,12 +15,54 @@
     <artifactId>jaxrs</artifactId>
     <version>2.1</version>
   </parent>
+  <!-- end::adocSkip[] -->
 
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+  <!-- end::adocHeader[] -->
+  <!-- tag::adocDependencies[] -->
   <dependencies>
+    <dependency>
+      <groupId>org.glassfish.jersey.core</groupId>
+      <artifactId>jersey-server</artifactId>
+      <version>2.28</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-servlet</artifactId>
+      <version>2.28</version>
+    </dependency>
+    <!-- end::adocDependencies[] -->
+
+    <!-- Test -->
+    <!-- tag::adocTest[] -->
+    <dependency>
+      <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+      <artifactId>jersey-test-framework-provider-jetty</artifactId>
+      <version>2.28</version>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.3.2</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.1</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>
+<!-- end::adocTest[] -->
+
