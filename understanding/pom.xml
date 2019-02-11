@@ -10,8 +10,8 @@
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
-    <artifactId>jpa</artifactId>
-    <version>2.2</version>
+    <artifactId>jaxrs</artifactId>
+    <version>2.1</version>
   </parent>
 
   <properties>

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * --
  */
 // tag::adocBegin[]
-public class ArtistEndpointTest extends JerseyTest {
+public class ArtistResourceTest extends JerseyTest {
 
   // ======================================
   // =              Methods               =

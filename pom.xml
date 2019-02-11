@@ -77,6 +77,16 @@
         <version>2.1-m09</version>
         <scope>provided</scope>
       </dependency>
+      <dependency>
+        <groupId>org.glassfish.jersey.core</groupId>
+        <artifactId>jersey-server</artifactId>
+        <version>${version.jersey}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.jersey.containers</groupId>
+        <artifactId>jersey-container-servlet</artifactId>
+        <version>${version.jersey}</version>
+      </dependency>
       <!-- Other -->
       <dependency>
         <groupId>javax.persistence</groupId>
@@ -100,6 +110,12 @@
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-engine</artifactId>
         <version>${version.junit}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+        <artifactId>jersey-test-framework-provider-jdk-http</artifactId>
+        <version>${version.jersey}</version>
         <scope>test</scope>
       </dependency>
       <dependency>

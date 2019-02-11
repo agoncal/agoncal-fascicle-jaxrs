@@ -19,7 +19,7 @@ import java.util.List;
  */
 // tag::adocSnippet[]
 @Path("/artists")
-public class ArtistEndpoint {
+public class ArtistResource {
 
   @POST
   @Produces(MediaType.APPLICATION_JSON)
