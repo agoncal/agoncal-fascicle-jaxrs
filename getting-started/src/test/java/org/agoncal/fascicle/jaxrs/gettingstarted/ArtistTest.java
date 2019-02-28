@@ -30,6 +30,7 @@ public class ArtistTest extends JerseyTest {
 
   @Override
   protected Application configure() {
+    //client().getConfiguration().isEnabled(new org.glassfish.jersey.media.json.JsonJaxbFeature());
     return new ResourceConfig(ArtistResource.class);
   }
   // end::adocBegin[]
