@@ -20,11 +20,10 @@
   <properties>
     <version.java>1.8</version.java>
     <!-- JAX-RS -->
-    <version.jersey>2.26-b03</version.jersey>
+    <version.jersey>2.28</version.jersey>
     <!-- Other -->
     <version.jpa-api>2.2</version.jpa-api>
     <version.jta-api>1.2</version.jta-api>
-    <version.moxy>2.7.0</version.moxy>
     <!-- Test -->
     <version.junit>5.3.2</version.junit>
     <!-- Core Maven Plugins -->
@@ -70,10 +69,11 @@
     <dependencies>
       <!-- JAX-RS -->
       <dependency>
-        <groupId>javax.ws.rs</groupId>
-        <artifactId>javax.ws.rs-api</artifactId>
-        <version>2.1-m09</version>
-        <scope>provided</scope>
+        <groupId>org.glassfish.jersey</groupId>
+        <artifactId>jersey-bom</artifactId>
+        <version>${jersey.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
       <!-- Other -->
       <dependency>
@@ -85,12 +85,6 @@
         <groupId>javax.transaction</groupId>
         <artifactId>javax.transaction-api</artifactId>
         <version>${version.jta-api}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.eclipse.persistence</groupId>
-        <artifactId>org.eclipse.persistence.moxy</artifactId>
-        <version>${version.moxy}</version>
-        <scope>test</scope>
       </dependency>
 
       <!-- Test -->

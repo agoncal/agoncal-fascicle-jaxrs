@@ -1,18 +1,16 @@
 package org.agoncal.fascicle.jpa.firststep;
 
+import org.agoncal.fascicle.jaxrs.firststep.Main;
+import org.glassfish.grizzly.http.server.HttpServer;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.persistence.RollbackException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Antonio Goncalves
@@ -22,19 +20,28 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 // tag::adocBegin[]
 public class AuthorTest {
 
-  private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("cdbookstorePU");
-  private static EntityManager em;
-  private static EntityTransaction tx;
+  private static HttpServer server;
+  private static WebTarget target;
 
   @BeforeAll
   static void init() {
-    em = emf.createEntityManager();
-    tx = em.getTransaction();
+    // start the server
+    server = Main.startServer();
+    // create the client
+    Client c = ClientBuilder.newClient();
+
+    // uncomment the following line if you want to enable
+    // support for JSON in the client (you also have to uncomment
+    // dependency on jersey-media-json module in pom.xml and Main.startServer())
+    // --
+    // c.configuration().enable(new org.glassfish.jersey.media.json.JsonJaxbFeature());
+
+    target = c.target(Main.BASE_URI);
   }
 
   @AfterAll
   static void close() {
-    if (em != null) em.close();
+    server.stop();
   }
   // end::adocBegin[]
 
@@ -43,29 +50,11 @@ public class AuthorTest {
   // ======================================
 
   @Test
-  void shouldCreateAnAuthor() {
+  void shouldGetIt() {
 
     // tag::adocShouldCreateAnAuthor[]
-    AuthorResource author = new AuthorResource().firstName("Adams").lastName("Douglas");
-    assertNull(author.getId(), "Id should be null");
-
-    tx.begin();
-    em.persist(author);
-    tx.commit();
-
-    assertNotNull(author.getId(), "Id should not be null");
+    String responseMsg = target.path("authors").request().get(String.class);
+    assertEquals("Got it!", responseMsg);
     // end::adocShouldCreateAnAuthor[]
-  }
-
-  @Test
-  void shouldNotCreateAnAuthorWithNullFirstname() {
-
-    // tag::adocShouldNotCreateAnAuthorWithNullFirstname[]
-    AuthorResource author = new AuthorResource().firstName(null);
-
-    tx.begin();
-    em.persist(author);
-    assertThrows(RollbackException.class, () -> tx.commit());
-    // end::adocShouldNotCreateAnAuthorWithNullFirstname[]
   }
 }
