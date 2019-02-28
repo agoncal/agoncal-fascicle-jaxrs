@@ -1,7 +1,6 @@
 package org.agoncal.fascicle.jaxrs.writingservices.ex10;
 
 import org.agoncal.fascicle.jaxrs.writingservices.Customer;
-import org.eclipse.persistence.jaxb.rs.MOXyJsonProvider;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Test;
@@ -27,7 +26,7 @@ public class CustomerRestServiceTest extends JerseyTest {
 
   @Override
   protected Application configure() {
-    return new ResourceConfig(CustomerRestService.class, MOXyJsonProvider.class);
+    return new ResourceConfig(CustomerRestService.class);
   }
 
   // ======================================
