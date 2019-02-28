@@ -28,6 +28,7 @@ public class AuthorTest extends JerseyTest {
   public void after() throws Exception {
     super.tearDown();
   }
+
   @Override
   protected Application configure() {
     return new ResourceConfig(AuthorResource.class);
