@@ -1,6 +1,5 @@
-package org.agoncal.fascicle.jpa.firststep;
+package org.agoncal.fascicle.jaxrs.gettingstarted;
 
-import org.agoncal.fascicle.jaxrs.firststep.Main;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -18,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * --
  */
 // tag::adocBegin[]
-public class AuthorTest {
+public class ArtistTest {
 
   private static HttpServer server;
   private static WebTarget target;
@@ -53,7 +52,7 @@ public class AuthorTest {
   void shouldGetIt() {
 
     // tag::adocShouldCreateAnAuthor[]
-    String responseMsg = target.path("authors").request().get(String.class);
+    String responseMsg = target.path("artists").request().get(String.class);
     assertEquals("Got it!", responseMsg);
     // end::adocShouldCreateAnAuthor[]
   }
