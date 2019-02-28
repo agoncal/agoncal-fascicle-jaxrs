@@ -3,6 +3,8 @@ package org.agoncal.fascicle.jpa.firststep;
 import org.agoncal.fascicle.jaxrs.firststep.AuthorResource;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.core.Application;
@@ -17,9 +19,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 // tag::adocBegin[]
 public class AuthorTest extends JerseyTest {
 
-//  private static HttpServer server;
-//  private static WebTarget target;
+  @BeforeEach
+  public  void before() throws Exception {
+    super.setUp();
+  }
 
+  @AfterEach
+  public void after() throws Exception {
+    super.tearDown();
+  }
   @Override
   protected Application configure() {
     return new ResourceConfig(AuthorResource.class);
@@ -52,7 +60,7 @@ public class AuthorTest extends JerseyTest {
   void shouldGetIt() {
 
     // tag::adocShouldCreateAnAuthor[]
-    String responseMsg = target().path("authors").request().get(String.class);
+    String responseMsg = target("/authors").request().get(String.class);
     assertEquals("Got it!", responseMsg);
     // end::adocShouldCreateAnAuthor[]
   }
