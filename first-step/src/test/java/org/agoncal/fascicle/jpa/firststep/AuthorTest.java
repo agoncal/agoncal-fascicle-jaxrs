@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.core.Application;
+import javax.ws.rs.core.Response;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -19,6 +20,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 // tag::adocBegin[]
 public class AuthorTest extends JerseyTest {
 
+  @Override
+  protected Application configure() {
+    return new ResourceConfig(AuthorResource.class);
+  }
+  // end::adocBegin[]
+
+  // ======================================
+  // =          Lifecycle Methods         =
+  // ======================================
+
   @BeforeEach
   public  void before() throws Exception {
     super.setUp();
@@ -29,40 +40,31 @@ public class AuthorTest extends JerseyTest {
     super.tearDown();
   }
 
-  @Override
-  protected Application configure() {
-    return new ResourceConfig(AuthorResource.class);
-  }
-//  static void init() {
-//    // start the server
-//    server = Main.startServer();
-//    // create the client
-//    Client c = ClientBuilder.newClient();
-//
-//    // uncomment the following line if you want to enable
-//    // support for JSON in the client (you also have to uncomment
-//    // dependency on jersey-media-json module in pom.xml and Main.startServer())
-//    // --
-//    // c.configuration().enable(new org.glassfish.jersey.media.json.JsonJaxbFeature());
-//
-//    target = c.target(Main.BASE_URI);
-//  }
-
-//  static void close() {
-//    server.shutdown();
-//  }
-  // end::adocBegin[]
-
   // ======================================
   // =              Methods               =
   // ======================================
 
   @Test
-  void shouldGetIt() {
-
+  void shouldGetAllAuthors() {
     // tag::adocShouldCreateAnAuthor[]
-    String responseMsg = target("/authors").request().get(String.class);
-    assertEquals("Got it!", responseMsg);
+    String response = target("/authors").request().get(String.class);
+    assertEquals("Isaac Asimov, Ray Bradbury, Douglas Adams", response);
     // end::adocShouldCreateAnAuthor[]
+  }
+
+  @Test
+  void shouldGetAuthor() {
+    // tag::adocShouldGetAuthor[]
+    String response = target("/authors/0").request().get(String.class);
+    assertEquals("Isaac Asimov", response);
+    // end::adocShouldGetAuthor[]
+  }
+
+  @Test
+  void shouldNotFindResource() {
+    // tag::adocShouldNotFindResource[]
+    Response response = target("dummy").request().get();
+    assertEquals(404, response.getStatus());
+    // end::adocShouldNotFindResource[]
   }
 }

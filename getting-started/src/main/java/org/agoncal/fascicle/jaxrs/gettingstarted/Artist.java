@@ -11,7 +11,6 @@ import java.time.LocalDate;
 // tag::adocSnippet[]
 public class Artist {
 
-  private Long id;
   private String firstName;
   private String lastName;
   private String email;
