@@ -2,23 +2,26 @@ package org.agoncal.fascicle.jaxrs.firststep;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import java.util.Arrays;
-import java.util.List;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 // tag::adocSnippet[]
 @Path("/authors")
+@Produces(MediaType.TEXT_PLAIN)
 public class AuthorResource {
 
+  String[] scifiAuthors = {"Isaac Asimov", "Ray Bradbury", "Douglas Adams"};
+
   @GET
-  public List<String> getAllAuthors() {
-    return Arrays.asList("Isaac Asimov", "Ray Bradbury", "Jules Verne");
+  public String getAllAuthors() {
+    return String.join(", ", scifiAuthors);
   }
 
   @GET
-  @Path("/count")
-  public Integer countAuthors() {
-    return 3;
+  @Path("/{index}")
+  public String getAuthor(@PathParam("index") int index) {
+    return scifiAuthors[index];
   }
-
 }
 // end::adocSnippet[]

@@ -2,12 +2,14 @@ package org.agoncal.fascicle.jaxrs.firststep;
 
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.core.Application;
+import javax.ws.rs.core.Response;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Antonio Goncalves
@@ -21,23 +23,47 @@ public class AuthorResourceTest extends JerseyTest {
   protected Application configure() {
     return new ResourceConfig(AuthorResource.class);
   }
-  @BeforeAll
-  static void init() {
+  // end::adocBegin[]
+
+  // ======================================
+  // =          Lifecycle Methods         =
+  // ======================================
+
+  @BeforeEach
+  public  void before() throws Exception {
+    super.setUp();
   }
 
-  @AfterAll
-  static void close() {
+  @AfterEach
+  public void after() throws Exception {
+    super.tearDown();
   }
-  // end::adocBegin[]
 
   // ======================================
   // =              Methods               =
   // ======================================
 
   @Test
-  public void shouldCountAuthors() {
-    int response = target("/count").request().get(int.class);
-    Assertions.assertEquals(3, response);
+  void shouldGetAllAuthors() {
+    // tag::adocShouldGetAllAuthors[]
+    String response = target("/authors").request().get(String.class);
+    assertEquals("Isaac Asimov, Ray Bradbury, Douglas Adams", response);
+    // end::adocShouldGetAllAuthors[]
   }
 
+  @Test
+  void shouldGetAuthor() {
+    // tag::adocShouldGetAuthor[]
+    String response = target("/authors/0").request().get(String.class);
+    assertEquals("Isaac Asimov", response);
+    // end::adocShouldGetAuthor[]
+  }
+
+  @Test
+  void shouldNotFindResource() {
+    // tag::adocShouldNotFindResource[]
+    Response response = target("/dummy").request().get();
+    assertEquals(404, response.getStatus());
+    // end::adocShouldNotFindResource[]
+  }
 }
