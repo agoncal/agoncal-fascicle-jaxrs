@@ -1,5 +1,7 @@
 package org.agoncal.fascicle.jaxrs.gettingstarted;
 
+import java.util.UUID;
+
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
@@ -9,7 +11,7 @@ package org.agoncal.fascicle.jaxrs.gettingstarted;
 // tag::adocSnippet[]
 public class Artist {
 
-  private Long id;
+  private UUID id;
   private String firstName;
   private String lastName;
 
@@ -19,7 +21,7 @@ public class Artist {
   public Artist() {
   }
 
-  public Artist(Long id, String firstName, String lastName) {
+  public Artist(UUID id, String firstName, String lastName) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -30,11 +32,11 @@ public class Artist {
   // =          Getters & Setters         =
   // ======================================
 
-  public Long getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
