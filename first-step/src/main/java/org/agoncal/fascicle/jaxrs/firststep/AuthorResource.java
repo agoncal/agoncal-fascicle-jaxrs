@@ -11,8 +11,6 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.TEXT_PLAIN)
 public class AuthorResource {
 
-  // tag::adocSkip[]
-
   String[] scifiAuthors = {"Isaac Asimov", "Ray Bradbury", "Douglas Adams"};
 
   @GET
@@ -25,6 +23,5 @@ public class AuthorResource {
   public String getAuthor(@PathParam("index") int index) {
     return scifiAuthors[index];
   }
-  // end::adocSkip[]
 }
 // end::adocSnippet[]
