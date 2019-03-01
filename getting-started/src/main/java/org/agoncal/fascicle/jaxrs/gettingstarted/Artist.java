@@ -1,5 +1,6 @@
 package org.agoncal.fascicle.jaxrs.gettingstarted;
 
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -27,6 +28,14 @@ public class Artist {
     this.lastName = lastName;
   }
 
+  public Artist(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  public Artist(UUID id) {
+    this.id = id;
+  }
 
   // ======================================
   // =          Getters & Setters         =
@@ -69,6 +78,20 @@ public class Artist {
   // ======================================
   // =         hash, equals, toString     =
   // ======================================
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Artist artist = (Artist) o;
+    return id.equals(artist.id);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
+  }
 
   @Override
   public String toString() {

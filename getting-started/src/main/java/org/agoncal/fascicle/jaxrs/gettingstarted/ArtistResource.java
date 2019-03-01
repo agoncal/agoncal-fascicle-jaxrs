@@ -10,8 +10,12 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
+import java.net.URI;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -27,20 +31,20 @@ public class ArtistResource {
 
   private Name faker = new Faker().name();
 
-  private List<Artist> artists = Arrays.asList(
+  private ArrayList<Artist> artists = new ArrayList<>(Arrays.asList(
     new Artist(UUID.randomUUID(), faker.firstName(), faker.lastName()),
     new Artist(UUID.randomUUID(), faker.firstName(), faker.lastName()),
     new Artist(UUID.randomUUID(), faker.firstName(), faker.lastName())
-  );
+  ));
 
   @POST
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
-  public Response create(Artist user) {
-    // Add artist logic here
-    UUID id = UUID.randomUUID();
-    artists. add(new Artist(id, faker.firstName(), faker.lastName()));
-    return Response.status(Response.Status.CREATED).build();
+  public Response create(@Context UriInfo uriInfo, Artist artist) {
+    artist.setId(UUID.randomUUID());
+    artists.add(artist);
+    URI uri = uriInfo.getAbsolutePathBuilder().path(artist.getId().toString()).build();
+    return Response.created(uri).build();
   }
 
   @GET
@@ -59,7 +63,7 @@ public class ArtistResource {
   @DELETE
   @Path("/{id}")
   public Response delete(@PathParam("id") UUID id) {
-    //artists.removeIf(x -> artists.contains())
+    artists.removeIf(x -> artists.contains(new Artist(id)));
     // Delete artist logic here
     return Response.status(Response.Status.NO_CONTENT).entity("Artist deleted successfully !!").build();
   }
