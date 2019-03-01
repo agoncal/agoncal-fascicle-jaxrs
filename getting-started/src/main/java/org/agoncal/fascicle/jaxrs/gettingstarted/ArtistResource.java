@@ -27,6 +27,8 @@ import java.util.UUID;
  */
 // tag::adocSnippet[]
 @Path("/artists")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class ArtistResource {
 
   private Name faker = new Faker().name();
@@ -38,8 +40,6 @@ public class ArtistResource {
   ));
 
   @POST
-  @Produces(MediaType.APPLICATION_JSON)
-  @Consumes(MediaType.APPLICATION_JSON)
   public Response create(@Context UriInfo uriInfo, Artist artist) {
     artist.setId(UUID.randomUUID());
     artists.add(artist);
@@ -48,7 +48,6 @@ public class ArtistResource {
   }
 
   @GET
-  @Produces(MediaType.APPLICATION_JSON)
   public List<Artist> listAll() {
     return artists;
   }
@@ -64,8 +63,7 @@ public class ArtistResource {
   @Path("/{id}")
   public Response delete(@PathParam("id") UUID id) {
     artists.removeIf(x -> artists.contains(new Artist(id)));
-    // Delete artist logic here
-    return Response.status(Response.Status.NO_CONTENT).entity("Artist deleted successfully !!").build();
+    return Response.noContent().build();
   }
 }
 // end::adocSnippet[]
