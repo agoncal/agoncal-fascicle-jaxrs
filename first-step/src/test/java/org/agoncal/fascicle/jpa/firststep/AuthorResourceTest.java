@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * --
  */
 // tag::adocBegin[]
-public class AuthorTest extends JerseyTest {
+public class AuthorResourceTest extends JerseyTest {
 
   @Override
   protected Application configure() {
