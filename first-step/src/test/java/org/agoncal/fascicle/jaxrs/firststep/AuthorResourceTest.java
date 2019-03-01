@@ -1,6 +1,5 @@
 package org.agoncal.fascicle.jaxrs.firststep;
 
-import org.agoncal.fascicle.jaxrs.firststep.AuthorResource;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.jupiter.api.AfterEach;
