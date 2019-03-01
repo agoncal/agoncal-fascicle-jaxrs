@@ -46,10 +46,10 @@ public class AuthorResourceTest extends JerseyTest {
 
   @Test
   void shouldGetAllAuthors() {
-    // tag::adocShouldCreateAnAuthor[]
+    // tag::adocShouldGetAllAuthors[]
     String response = target("/authors").request().get(String.class);
     assertEquals("Isaac Asimov, Ray Bradbury, Douglas Adams", response);
-    // end::adocShouldCreateAnAuthor[]
+    // end::adocShouldGetAllAuthors[]
   }
 
   @Test
@@ -63,7 +63,7 @@ public class AuthorResourceTest extends JerseyTest {
   @Test
   void shouldNotFindResource() {
     // tag::adocShouldNotFindResource[]
-    Response response = target("dummy").request().get();
+    Response response = target("/dummy").request().get();
     assertEquals(404, response.getStatus());
     // end::adocShouldNotFindResource[]
   }
