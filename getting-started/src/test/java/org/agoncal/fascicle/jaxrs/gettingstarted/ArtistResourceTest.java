@@ -1,11 +1,5 @@
 package org.agoncal.fascicle.jaxrs.gettingstarted;
 
-import com.github.javafaker.Faker;
-import com.github.javafaker.Name;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.Assert.assertEquals;
-
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
@@ -14,19 +8,10 @@ import static org.junit.Assert.assertEquals;
 // tag::adocBegin[]
 public class ArtistResourceTest /* extends JerseyTest*/ {
 
-  private Name faker = new Faker().name();
 
   // ======================================
   // =              Methods               =
   // ======================================
-
-  @Test
-  public void shouldTestOutofContainer() {
-    ArtistResource resource = new ArtistResource();
-    assertEquals(new Integer(3), resource.countArtists());
-    resource.createArtist(null, new Artist(faker.firstName(), faker.lastName()));
-    assertEquals(new Integer(4), resource.countArtists());
-  }
 
 //  @Test
 //  public void shouldListAllArtists() {
