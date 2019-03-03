@@ -1,8 +1,5 @@
 package org.agoncal.fascicle.jaxrs.gettingstarted;
 
-import com.github.javafaker.Faker;
-import com.github.javafaker.Name;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -17,7 +14,6 @@ import javax.ws.rs.core.UriInfo;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 
 /**
@@ -31,37 +27,62 @@ import java.util.UUID;
 @Consumes(MediaType.APPLICATION_JSON)
 public class ArtistResource {
 
-  private Name faker = new Faker().name();
-
-  private ArrayList<Artist> artists = new ArrayList<>(Arrays.asList(
-    new Artist(UUID.randomUUID(), faker.firstName(), faker.lastName()),
-    new Artist(UUID.randomUUID(), faker.firstName(), faker.lastName()),
-    new Artist(UUID.randomUUID(), faker.firstName(), faker.lastName())
+  private static ArrayList<Artist> artists = new ArrayList<>(Arrays.asList(
+    new Artist(UUID.randomUUID(), "John", "Lennon"),
+    new Artist(UUID.randomUUID(), "Paul","McCartney"),
+    new Artist(UUID.randomUUID(), "George","Harrison"),
+    new Artist(UUID.randomUUID(), "Ringo","Starr")
   ));
 
   @POST
-  public Response create(@Context UriInfo uriInfo, Artist artist) {
+  public Response createArtist(@Context UriInfo uriInfo, Artist artist) {
     artist.setId(UUID.randomUUID());
     artists.add(artist);
     URI uri = uriInfo.getAbsolutePathBuilder().path(artist.getId().toString()).build();
     return Response.created(uri).build();
   }
 
+  /**
+   * curl http://localhost:8080/cdbookstore/artists -v
+   * curl -X GET http://localhost:8080/cdbookstore/artists -v
+   * curl -X GET -H "Accept: application/json" http://localhost:8080/cdbookstore/artists -v
+   */
   @GET
-  public List<Artist> listAll() {
-    return artists;
+  public Response getAllArtists() {
+    return Response.ok(artists).build();
   }
 
+  /**
+   * curl http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456
+   * curl -X GET http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456
+   */
+  @GET
+  @Path("/{id}")
+  public Response getArtist(@PathParam("id") UUID id) {
+    Artist artist = artists.stream()
+      .filter(a -> id.equals(a.getId()))
+      .findFirst()
+      .orElse(null);
+    return Response.ok(artist).build();
+  }
+
+  /**
+   * curl http://localhost:8080/cdbookstore/artists/count -v
+   * curl -X GET -H "Accept: text/plain" http://localhost:8080/cdbookstore/artists/count -v
+   */
   @GET
   @Path("/count")
   @Produces(MediaType.TEXT_PLAIN)
-  public Integer countAll() {
+  public Integer countArtists() {
     return artists.size();
   }
 
+  /**
+   * curl -X DELETE http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456 -v
+   */
   @DELETE
   @Path("/{id}")
-  public Response delete(@PathParam("id") UUID id) {
+  public Response deleteArtist(@PathParam("id") UUID id) {
     artists.removeIf(x -> artists.contains(new Artist(id)));
     return Response.noContent().build();
   }

@@ -23,9 +23,9 @@ public class ArtistResourceTest /* extends JerseyTest*/ {
   @Test
   public void shouldTestOutofContainer() {
     ArtistResource resource = new ArtistResource();
-    assertEquals(new Integer(3), resource.countAll());
-    resource.create(new Artist(faker.firstName(), faker.lastName()));
-    assertEquals(new Integer(4), resource.countAll());
+    assertEquals(new Integer(3), resource.countArtists());
+    resource.createArtist(null, new Artist(faker.firstName(), faker.lastName()));
+    assertEquals(new Integer(4), resource.countArtists());
   }
 
 //  @Test
