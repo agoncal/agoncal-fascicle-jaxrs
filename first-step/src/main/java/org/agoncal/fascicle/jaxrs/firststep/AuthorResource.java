@@ -14,13 +14,13 @@ public class AuthorResource {
   String[] scifiAuthors = {"Isaac Asimov", "Ray Bradbury", "Douglas Adams"};
 
   @GET
-  public String getAllAuthors() {
+  public String getAllScifiAuthors() {
     return String.join(", ", scifiAuthors);
   }
 
   @GET
   @Path("/{index}")
-  public String getAuthor(@PathParam("index") int index) {
+  public String getScifiAuthor(@PathParam("index") int index) {
     return scifiAuthors[index];
   }
 }
