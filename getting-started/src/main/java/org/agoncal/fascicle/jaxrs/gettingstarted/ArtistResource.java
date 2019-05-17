@@ -7,10 +7,14 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
+import java.net.URI;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.UUID;
 
 /**
  * @author Antonio Goncalves
@@ -19,37 +23,68 @@ import java.util.List;
  */
 // tag::adocSnippet[]
 @Path("/artists")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class ArtistResource {
 
+  private static ArrayList<Artist> artists = new ArrayList<>(Arrays.asList(
+    new Artist(UUID.randomUUID(), "John", "Lennon"),
+    new Artist(UUID.randomUUID(), "Paul","McCartney"),
+    new Artist(UUID.randomUUID(), "George","Harrison"),
+    new Artist(UUID.randomUUID(), "Ringo","Starr")
+  ));
+
   @POST
-  @Produces(MediaType.APPLICATION_JSON)
-  @Consumes(MediaType.APPLICATION_JSON)  public Response create(Artist user) {
-    // Add artist logic here
-    return Response.status(Response.Status.CREATED).build();
+  public Response createArtist(@Context UriInfo uriInfo, Artist artist) {
+    artist.setId(UUID.randomUUID());
+    artists.add(artist);
+    URI uri = uriInfo.getAbsolutePathBuilder().path(artist.getId().toString()).build();
+    return Response.created(uri).build();
   }
 
+  /**
+   * curl http://localhost:8080/cdbookstore/artists -v
+   * curl -X GET http://localhost:8080/cdbookstore/artists -v
+   * curl -X GET -H "Accept: application/json" http://localhost:8080/cdbookstore/artists -v
+   */
   @GET
-  @Produces(MediaType.APPLICATION_JSON)
-  public List<Artist> listAll() {
-    List<Artist> artists = new ArrayList<>();
-    artists.add(new Artist(1L, "A", "demo@gmail.com"));
-    artists.add(new Artist(2L, "B", "demo1@gmail.com"));
-    artists.add(new Artist(3L, "C", "demo2@gmail.com"));
-    return artists;
+  public Response getAllArtists() {
+    return Response.ok(artists).build();
   }
 
+  /**
+   * curl http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456
+   * curl -X GET http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456
+   */
+  @GET
+  @Path("/{id}")
+  public Response getArtist(@PathParam("id") UUID id) {
+    Artist artist = artists.stream()
+      .filter(a -> id.equals(a.getId()))
+      .findFirst()
+      .orElse(null);
+    return Response.ok(artist).build();
+  }
+
+  /**
+   * curl http://localhost:8080/cdbookstore/artists/count -v
+   * curl -X GET -H "Accept: text/plain" http://localhost:8080/cdbookstore/artists/count -v
+   */
   @GET
   @Path("/count")
   @Produces(MediaType.TEXT_PLAIN)
-  public Integer countAll() {
-    return 3;
+  public Integer countArtists() {
+    return artists.size();
   }
 
+  /**
+   * curl -X DELETE http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456 -v
+   */
   @DELETE
   @Path("/{id}")
-  public Response delete(@PathParam("id") long id) {
-    // Delete artist logic here
-    return Response.status(Response.Status.NO_CONTENT).entity("Artist deleted successfully !!").build();
+  public Response deleteArtist(@PathParam("id") UUID id) {
+    artists.removeIf(x -> artists.contains(new Artist(id)));
+    return Response.noContent().build();
   }
 }
 // end::adocSnippet[]

@@ -1,5 +1,8 @@
 package org.agoncal.fascicle.jaxrs.gettingstarted;
 
+import java.util.Objects;
+import java.util.UUID;
+
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
@@ -9,7 +12,7 @@ package org.agoncal.fascicle.jaxrs.gettingstarted;
 // tag::adocSnippet[]
 public class Artist {
 
-  private Long id;
+  private UUID id;
   private String firstName;
   private String lastName;
 
@@ -19,22 +22,30 @@ public class Artist {
   public Artist() {
   }
 
-  public Artist(Long id, String firstName, String lastName) {
+  public Artist(UUID id, String firstName, String lastName) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
   }
 
+  public Artist(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  public Artist(UUID id) {
+    this.id = id;
+  }
 
   // ======================================
   // =          Getters & Setters         =
   // ======================================
 
-  public Long getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
@@ -67,6 +78,20 @@ public class Artist {
   // ======================================
   // =         hash, equals, toString     =
   // ======================================
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Artist artist = (Artist) o;
+    return id.equals(artist.id);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
+  }
 
   @Override
   public String toString() {

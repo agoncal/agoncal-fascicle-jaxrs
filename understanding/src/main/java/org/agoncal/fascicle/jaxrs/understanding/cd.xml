@@ -1,0 +1,10 @@
+<cd>
+  <title>Ella and Louis</title>
+  <year ref="http://cdbookstore.com/years/1956">1956</year>
+  <artist ref="http://cdbookstore.com/artists/123">Ella Fitzgerald</artist>
+  <artist ref="http://cdbookstore.com/artists/456">Louis Armstrong</artist>
+  <link rel="self" type="text/json" href="http://cdbookstore.com/albums/789"/>
+  <link rel="self" type="text/xml" href="http://cdbookstore.com/albums/789"/>
+  <link rel="http://cdbookstore.com/albums/comments" type="text/xml"
+        href="http://cdbookstore.com/albums/789/comments"/>
+</cd>
