@@ -103,6 +103,11 @@
         <artifactId>swagger-annotations</artifactId>
         <version>${version.swagger}</version>
       </dependency>
+      <dependency>
+        <groupId>io.swagger.core.v3</groupId>
+        <artifactId>swagger-jaxrs2</artifactId>
+        <version>${version.swagger}</version>
+      </dependency>
       <!-- Test -->
       <dependency>
         <groupId>org.eclipse.persistence</groupId>

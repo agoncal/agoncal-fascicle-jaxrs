@@ -15,6 +15,21 @@
     "name" : "book"
   } ],
   "paths" : {
+    "/authors" : {
+      "get" : {
+        "tags" : [ "scifi" ],
+        "summary" : "Gets all the sci-fi authors",
+        "operationId" : "getAllScifiAuthors",
+        "responses" : {
+          "200" : {
+            "description" : "Comma-separated list of sci-fi authors",
+            "content" : {
+              "text/plain" : { }
+            }
+          }
+        }
+      }
+    },
     "/authors/{index}" : {
       "get" : {
         "tags" : [ "scifi" ],
@@ -32,25 +47,16 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "A sci-fi author"
+            "description" : "A sci-fi author",
+            "content" : {
+              "text/plain" : { }
+            }
           },
           "400" : {
             "description" : "Invalid index supplied"
           },
           "404" : {
             "description" : "Author not found"
-          }
-        }
-      }
-    },
-    "/authors" : {
-      "get" : {
-        "tags" : [ "scifi" ],
-        "summary" : "Gets all the sci-fi authors",
-        "operationId" : "getAllScifiAuthors",
-        "responses" : {
-          "200" : {
-            "description" : "Comma-separated list of sci-fi authors"
           }
         }
       }

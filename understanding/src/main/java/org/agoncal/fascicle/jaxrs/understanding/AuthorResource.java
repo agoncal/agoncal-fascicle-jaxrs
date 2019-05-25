@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.servers.Server;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -37,7 +38,8 @@ public class AuthorResource {
   @GET
   @Operation(summary = "Gets all the sci-fi authors", tags = {"scifi"},
     responses = {
-      @ApiResponse(responseCode = "200", description = "Comma-separated list of sci-fi authors")
+      @ApiResponse(responseCode = "200", description = "Comma-separated list of sci-fi authors",
+        content = @Content(mediaType = "text/plain"))
     })
   public String getAllScifiAuthors() {
     return String.join(", ", scifiAuthors);
@@ -48,7 +50,8 @@ public class AuthorResource {
   @Operation(summary = "Gets a sci-fi author by index",
     tags = {"scifi"},
     responses = {
-      @ApiResponse(responseCode = "200", description = "A sci-fi author"),
+      @ApiResponse(responseCode = "200", description = "A sci-fi author",
+        content = @Content(mediaType = "text/plain")),
       @ApiResponse(responseCode = "400", description = "Invalid index supplied"),
       @ApiResponse(responseCode = "404", description = "Author not found")}
   )
