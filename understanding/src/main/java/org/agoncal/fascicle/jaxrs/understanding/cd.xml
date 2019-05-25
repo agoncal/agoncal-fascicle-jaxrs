@@ -3,8 +3,8 @@
   <year ref="http://cdbookstore.com/years/2013">2013</year>
   <author ref="http://cdbookstore.com/authors/37820">Mike Keith</author>
   <author ref="http://cdbookstore.com/authors/12893">Merrick Schincariol</author>
-  <link rel="self" type="text/json" href="http://cdbookstore.com/cd/3912"/>
-  <link rel="self" type="text/xml" href="http://cdbookstore.com/cd/3912"/>
-  <link rel="http://cdbookstore.com/cd/comments" type="text/json"
-        href="http://cdbookstore.com/cd/3912/comments"/>
+  <link rel="self" type="text/json" href="http://cdbookstore.com/books/3912"/>
+  <link rel="self" type="text/xml" href="http://cdbookstore.com/books/3912"/>
+  <link rel="http://cdbookstore.com/books/comments" type="text/json"
+        href="http://cdbookstore.com/books/3912/comments"/>
 </book>
