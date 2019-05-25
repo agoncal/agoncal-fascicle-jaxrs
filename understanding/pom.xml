@@ -53,7 +53,7 @@
         <configuration>
           <outputFileName>openapi</outputFileName>
           <outputPath>${basedir}/src/main/webapp</outputPath>
-          <outputFormat>JSON</outputFormat>
+          <outputFormat>JSONANDYAML</outputFormat>
           <resourcePackages>
             <package>org.agoncal.fascicle.jaxrs.understanding</package>
           </resourcePackages>
