@@ -3,9 +3,7 @@ package org.agoncal.fascicle.jaxrs.understanding;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
-import io.swagger.v3.oas.annotations.info.License;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
@@ -21,9 +19,7 @@ import javax.ws.rs.core.MediaType;
   info = @Info(
     title = "Authors",
     version = "1.0",
-    description = "Operations on authors",
-    license = @License(name = "Apache 2.0", url = "http://cdbookstore.com/license"),
-    contact = @Contact(url = "http://cdbookstore.com/contact", name = "Antonio", email = "agoncal.fascicle@gmail.com")
+    description = "Operations on authors"
   ),
   tags = {
     @Tag(name = "author"),
@@ -35,7 +31,10 @@ public class AuthorResource {
   String[] scifiAuthors = {"Isaac Asimov", "Ray Bradbury", "Douglas Adams"};
 
   @GET
-  @Operation(summary = "Gets all the sci-fi authors", tags = {"scifi"})
+  @Operation(summary = "Gets all the sci-fi authors", tags = {"scifi"},
+    responses = {
+      @ApiResponse(responseCode = "200", description = "Comma-separated list of sci-fi authors")
+    })
   public String getAllScifiAuthors() {
     return String.join(", ", scifiAuthors);
   }
@@ -45,6 +44,7 @@ public class AuthorResource {
   @Operation(summary = "Gets a sci-fi author by index",
     tags = {"scifi"},
     responses = {
+      @ApiResponse(responseCode = "200", description = "A sci-fi author"),
       @ApiResponse(responseCode = "400", description = "Invalid index supplied"),
       @ApiResponse(responseCode = "404", description = "Author not found")}
   )

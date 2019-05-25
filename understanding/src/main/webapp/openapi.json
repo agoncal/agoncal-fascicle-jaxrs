@@ -3,15 +3,6 @@
   "info" : {
     "title" : "Authors",
     "description" : "Operations on authors",
-    "contact" : {
-      "name" : "Antonio",
-      "url" : "http://cdbookstore.com/contact",
-      "email" : "agoncal.fascicle@gmail.com"
-    },
-    "license" : {
-      "name" : "Apache 2.0",
-      "url" : "http://cdbookstore.com/license"
-    },
     "version" : "1.0"
   },
   "tags" : [ {
@@ -26,15 +17,8 @@
         "summary" : "Gets all the sci-fi authors",
         "operationId" : "getAllScifiAuthors",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
+          "200" : {
+            "description" : "Comma-separated list of sci-fi authors"
           }
         }
       }
@@ -55,6 +39,9 @@
           }
         } ],
         "responses" : {
+          "200" : {
+            "description" : "A sci-fi author"
+          },
           "400" : {
             "description" : "Invalid index supplied"
           },
