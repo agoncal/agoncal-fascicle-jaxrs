@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.servers.Server;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import javax.ws.rs.GET;
@@ -24,6 +25,9 @@ import javax.ws.rs.core.MediaType;
   tags = {
     @Tag(name = "author"),
     @Tag(name = "book")
+  },
+  servers = {
+    @Server(url = "http://www.cdbookstore.com/api")
   }
 )
 public class AuthorResource {

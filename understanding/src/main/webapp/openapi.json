@@ -5,24 +5,16 @@
     "description" : "Operations on authors",
     "version" : "1.0"
   },
+  "servers" : [ {
+    "url" : "http://www.cdbookstore.com/api",
+    "variables" : { }
+  } ],
   "tags" : [ {
     "name" : "author"
   }, {
     "name" : "book"
   } ],
   "paths" : {
-    "/authors" : {
-      "get" : {
-        "tags" : [ "scifi" ],
-        "summary" : "Gets all the sci-fi authors",
-        "operationId" : "getAllScifiAuthors",
-        "responses" : {
-          "200" : {
-            "description" : "Comma-separated list of sci-fi authors"
-          }
-        }
-      }
-    },
     "/authors/{index}" : {
       "get" : {
         "tags" : [ "scifi" ],
@@ -47,6 +39,18 @@
           },
           "404" : {
             "description" : "Author not found"
+          }
+        }
+      }
+    },
+    "/authors" : {
+      "get" : {
+        "tags" : [ "scifi" ],
+        "summary" : "Gets all the sci-fi authors",
+        "operationId" : "getAllScifiAuthors",
+        "responses" : {
+          "200" : {
+            "description" : "Comma-separated list of sci-fi authors"
           }
         }
       }
