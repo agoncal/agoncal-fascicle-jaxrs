@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jaxrs.firststep;
+package org.agoncal.fascicle.jaxrs.understanding;
 
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
@@ -27,25 +27,19 @@ public class AuthorResourceTest extends JerseyTest {
 
   @Test
   public void shouldGetAllAuthors() {
-    // tag::adocShouldGetAllAuthors[]
     String response = target("/authors").request().get(String.class);
     assertEquals("Isaac Asimov, Ray Bradbury, Douglas Adams", response);
-    // end::adocShouldGetAllAuthors[]
   }
 
   @Test
   public void shouldGetAuthor() {
-    // tag::adocShouldGetAuthor[]
     String response = target("/authors/0").request().get(String.class);
     assertEquals("Isaac Asimov", response);
-    // end::adocShouldGetAuthor[]
   }
 
   @Test
   public void shouldNotFindResource() {
-    // tag::adocShouldNotFindResource[]
     Response response = target("/dummy").request().get();
     assertEquals(404, response.getStatus());
-    // end::adocShouldNotFindResource[]
   }
 }

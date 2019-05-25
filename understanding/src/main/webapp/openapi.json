@@ -1,0 +1,55 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Authors",
+    "description" : "Operations on authors",
+    "version" : "1.0"
+  },
+  "tags" : [ {
+    "name" : "author"
+  }, {
+    "name" : "book"
+  } ],
+  "paths" : {
+    "/authors" : {
+      "get" : {
+        "tags" : [ "scifi" ],
+        "summary" : "Gets all the sci-fi authors",
+        "operationId" : "getAllScifiAuthors",
+        "responses" : {
+          "200" : {
+            "description" : "Comma-separated list of sci-fi authors"
+          }
+        }
+      }
+    },
+    "/authors/{index}" : {
+      "get" : {
+        "tags" : [ "scifi" ],
+        "summary" : "Gets a sci-fi author by index",
+        "operationId" : "getScifiAuthor",
+        "parameters" : [ {
+          "name" : "index",
+          "in" : "path",
+          "description" : "Author index",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A sci-fi author"
+          },
+          "400" : {
+            "description" : "Invalid index supplied"
+          },
+          "404" : {
+            "description" : "Author not found"
+          }
+        }
+      }
+    }
+  }
+}
