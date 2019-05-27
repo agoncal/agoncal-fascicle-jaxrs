@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 public class BookRestServiceTest extends JerseyTest {
 
   private static final String XML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><book><description>Science fiction comedy book</description><illustrations>false</illustrations><isbn>1-84023-742-2</isbn><nbOfPage>354</nbOfPage><price>12.5</price><title>The Hitchhiker's Guide to the Galaxy</title></book>";
@@ -90,4 +90,4 @@ public class BookRestServiceTest extends JerseyTest {
     assertEquals(Response.Status.NOT_FOUND.getStatusCode(), response.getStatusInfo().getStatusCode());
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

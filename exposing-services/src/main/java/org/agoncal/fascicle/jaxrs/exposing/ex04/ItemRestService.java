@@ -12,49 +12,49 @@ import javax.ws.rs.core.Response;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Path("/items")
 public class ItemRestService {
 
   @GET
   public Items getItems() {
     // URI : /items
-    // tag::adocskip1[]
+    // tag::adocSkip1[]
     Items items = new Items();
     items.add(new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
     return items;
-    // end::adocskip1[]
+    // end::adocSkip1[]
   }
 
   @GET
   @Path("/cds")
   public CDs getCDs() {
     // URI : /items/cds
-    // tag::adocskip2[]
+    // tag::adocSkip2[]
     CDs cds = new CDs();
     cds.add(new CD("Help", 12.5F, "Best Beatles album", "EMI", 1, 45.6F, "Pop"));
     return cds;
-    // end::adocskip2[]
+    // end::adocSkip2[]
   }
 
   @GET
   @Path("/books")
   public Books getBooks() {
     // URI : /items/books
-    // tag::adocskip3[]
+    // tag::adocSkip3[]
     Books books = new Books();
     books.add(new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
     return books;
-    // end::adocskip3[]
+    // end::adocSkip3[]
   }
 
   @POST
   @Path("/books")
   public Response createBook(Book book) {
     // URI : /items/book
-    // tag::adocskip4[]
+    // tag::adocSkip4[]
     return Response.created(null).build();
-    // end::adocskip4[]
+    // end::adocSkip4[]
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

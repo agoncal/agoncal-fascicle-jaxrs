@@ -13,7 +13,7 @@ import java.util.Set;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @ApplicationPath("api")
 public class ApplicationConfig extends Application {
 
@@ -31,4 +31,4 @@ public class ApplicationConfig extends Application {
     return classes;
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

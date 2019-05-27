@@ -14,7 +14,7 @@ import java.util.List;
  *         http://www.antoniogoncalves.org
  *         --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Path("/customers")
 public class CustomerRestService {
 
@@ -41,13 +41,13 @@ public class CustomerRestService {
     URI bookUri = uriInfo.getAbsolutePathBuilder().path(customer.getId().toString()).build();
     return Response.created(bookUri).build();
   }
-  // tag::adocskip[]
+  // tag::adocSkip[]
   private CustomerService customerService = new CustomerService();
   private class CustomerService {
     public Customer persist(Customer customer) {
       return new Customer("1", "John", "Smith", "jsmith@gmail.com", "1234565");
     }
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

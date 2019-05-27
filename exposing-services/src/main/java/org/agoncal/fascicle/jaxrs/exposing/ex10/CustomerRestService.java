@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response;
  *         http://www.antoniogoncalves.org
  *         --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Path("/customers")
 public class CustomerRestService {
 
@@ -40,4 +40,4 @@ public class CustomerRestService {
     return Response.ok(new Customer("John", "Smith"), MediaType.APPLICATION_JSON).build();
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

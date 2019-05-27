@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Provider
 @Consumes("custom/format")
 public class CustomCustomerReader implements MessageBodyReader<Customer> {
@@ -41,7 +41,7 @@ public class CustomCustomerReader implements MessageBodyReader<Customer> {
 
     return customer;
   }
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public String convertStreamToString(InputStream is)
     throws IOException {
@@ -65,6 +65,6 @@ public class CustomCustomerReader implements MessageBodyReader<Customer> {
       return "";
     }
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

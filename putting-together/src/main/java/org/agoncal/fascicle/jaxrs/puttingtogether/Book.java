@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Entity
 @XmlRootElement
 @NamedQuery(name = Book.FIND_ALL, query = "SELECT b FROM Book b")
@@ -29,7 +29,7 @@ public class Book {
   private Boolean illustrations;
 
   // Constructors, getters, setters
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public Book() {
   }
@@ -112,6 +112,6 @@ public class Book {
   public void setIllustrations(Boolean illustrations) {
     this.illustrations = illustrations;
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

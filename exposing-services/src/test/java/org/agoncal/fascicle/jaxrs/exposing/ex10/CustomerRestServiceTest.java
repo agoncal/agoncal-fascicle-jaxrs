@@ -64,7 +64,7 @@ public class CustomerRestServiceTest extends JerseyTest {
 
   @Test
   public void shouldCheckResponse() {
-    // tag::adocsnippet[]
+    // tag::adocSnippet[]
     Response.ok().build();
     Response.ok().cookie(new NewCookie("SessionID", "5G79GDIFY09")).build();
     Response.ok("Plain Text").expires(new Date()).build();
@@ -72,6 +72,6 @@ public class CustomerRestServiceTest extends JerseyTest {
     Response.noContent().build();
     Response.accepted(new Customer("John", "Smith", "jsmith@gmail.com", "1234565")).build();
     Response.notModified().header("User-Agent", "Mozilla").build();
-    // end::adocsnippet[]
+    // end::adocSnippet[]
   }
 }

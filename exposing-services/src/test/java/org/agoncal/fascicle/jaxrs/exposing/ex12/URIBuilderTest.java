@@ -20,7 +20,7 @@ public class URIBuilderTest {
 
   @Test
   public void shouldBuildURIs() {
-    // tag::adocsnippet[]
+    // tag::adocSnippet[]
     URI uri = UriBuilder.fromUri("http://www.cdbookstore.com").path("book").path("1234").build();
     assertEquals("http://www.cdbookstore.com/book/1234", uri.toString());
 
@@ -46,6 +46,6 @@ public class URIBuilderTest {
 
     uri = UriBuilder.fromUri("http://www.cdbookstore.com").fragment("book").build();
     assertEquals("http://www.cdbookstore.com/#book", uri.toString());
-    // end::adocsnippet[]
+    // end::adocSnippet[]
   }
 }

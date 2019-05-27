@@ -10,26 +10,26 @@ import javax.ws.rs.Path;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Path("/customers")
 public class CustomerRestService {
 
   @GET
   @Path("cookie")
   public String extractSessionID(@CookieParam("sessionID") String sessionID) {
-    // tag::adocskip1[]
+    // tag::adocSkip1[]
     System.out.println("extractSessionID : " + sessionID);
     return sessionID + " from the server";
-    // end::adocskip1[]
+    // end::adocSkip1[]
   }
 
   @GET
   @Path("userAgent")
   public String extractUserAgent(@HeaderParam("User-Agent") String userAgent) {
-    // tag::adocskip2[]
+    // tag::adocSkip2[]
     System.out.println("echoUserAgent : " + userAgent);
     return userAgent + " from the server";
-    // end::adocskip2[]
+    // end::adocSkip2[]
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

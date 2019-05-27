@@ -11,7 +11,7 @@ import javax.ws.rs.ext.Provider;
  *         http://www.antoniogoncalves.org
  *         --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Provider
 public class EntityNotFoundMapper implements ExceptionMapper<EntityNotFoundException> {
 
@@ -19,4 +19,4 @@ public class EntityNotFoundMapper implements ExceptionMapper<EntityNotFoundExcep
     return Response.status(404).entity(ex.getMessage()).type(MediaType.TEXT_PLAIN).build();
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]
