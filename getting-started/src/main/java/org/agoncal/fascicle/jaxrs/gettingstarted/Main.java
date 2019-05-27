@@ -9,37 +9,17 @@ import java.net.URI;
 
 /**
  * Main class.
- *
  */
 public class Main {
-    // Base URI the Grizzly HTTP server will listen on
-    public static final String BASE_URI = "http://localhost:8080/cdbookstore/";
 
-    /**
-     * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
-     * @return Grizzly HTTP server.
-     */
-    public static HttpServer startServer() {
-        // create a resource config that scans for JAX-RS resources and providers
-        // in org.agoncal.fascicle.jaxrs.firststep package
-        final ResourceConfig rc = new ResourceConfig().packages("org.agoncal.fascicle.jaxrs.gettingstarted");
+  private static final String BASE_URI = "http://localhost:8080/cdbookstore/";
 
-        // create and start a new instance of grizzly http server
-        // exposing the Jersey application at BASE_URI
-        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
-    }
-
-    /**
-     * Main method.
-     * @param args
-     * @throws IOException
-     */
-    public static void main(String[] args) throws IOException {
-        final HttpServer server = startServer();
-        System.out.println(String.format("Jersey app started with WADL available at "
-                + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
-        System.in.read();
-        server.stop();
-    }
+  public static void main(String[] args) throws IOException {
+    ResourceConfig rc = new ResourceConfig().packages("org.agoncal.fascicle.jaxrs.gettingstarted");
+    HttpServer server = GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
+    System.out.println("Jersey app started at " + BASE_URI);
+    System.in.read();
+    server.shutdown();
+  }
 }
 

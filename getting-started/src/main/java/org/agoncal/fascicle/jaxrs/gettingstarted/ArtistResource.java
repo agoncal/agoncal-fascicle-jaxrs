@@ -29,18 +29,10 @@ public class ArtistResource {
 
   private static ArrayList<Artist> artists = new ArrayList<>(Arrays.asList(
     new Artist(UUID.randomUUID(), "John", "Lennon"),
-    new Artist(UUID.randomUUID(), "Paul","McCartney"),
-    new Artist(UUID.randomUUID(), "George","Harrison"),
-    new Artist(UUID.randomUUID(), "Ringo","Starr")
+    new Artist(UUID.randomUUID(), "Paul", "McCartney"),
+    new Artist(UUID.randomUUID(), "George", "Harrison"),
+    new Artist(UUID.randomUUID(), "Ringo", "Starr")
   ));
-
-  @POST
-  public Response createArtist(@Context UriInfo uriInfo, Artist artist) {
-    artist.setId(UUID.randomUUID());
-    artists.add(artist);
-    URI uri = uriInfo.getAbsolutePathBuilder().path(artist.getId().toString()).build();
-    return Response.created(uri).build();
-  }
 
   /**
    * curl http://localhost:8080/cdbookstore/artists -v
@@ -75,6 +67,14 @@ public class ArtistResource {
   @Produces(MediaType.TEXT_PLAIN)
   public Integer countArtists() {
     return artists.size();
+  }
+
+  @POST
+  public Response createArtist(@Context UriInfo uriInfo, Artist artist) {
+    artist.setId(UUID.randomUUID());
+    artists.add(artist);
+    URI uri = uriInfo.getAbsolutePathBuilder().path(artist.getId().toString()).build();
+    return Response.created(uri).build();
   }
 
   /**
