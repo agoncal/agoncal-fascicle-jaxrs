@@ -35,7 +35,6 @@ public class ArtistResourceTest extends JerseyTest {
     Response response = target("/artists").request().get();
     assertEquals(200, response.getStatus());
     String artists = response.readEntity(String.class);
-    assertEquals(new Integer(4), target("/artists/count").request().get(Integer.class));
     assertEquals("John", JsonPath.parse(artists).read("$.[0].firstName"));
     assertEquals("Lennon", JsonPath.parse(artists).read("$.[0].lastName"));
     // end::adocShouldGetAllAuthors[]
@@ -52,6 +51,14 @@ public class ArtistResourceTest extends JerseyTest {
     assertEquals("John", JsonPath.parse(artist).read("$.firstName"));
     assertEquals("Lennon", JsonPath.parse(artist).read("$.lastName"));
     // end::adocShouldGetArtist[]
+  }
+
+  @Test
+  public void shouldCountArtist() {
+    // tag::shouldCountArtist[]
+    Response response = target("/artists/count").request().get();
+    assertEquals(200, response.getStatus());
+    // end::shouldCountArtist[]
   }
 
   @Test

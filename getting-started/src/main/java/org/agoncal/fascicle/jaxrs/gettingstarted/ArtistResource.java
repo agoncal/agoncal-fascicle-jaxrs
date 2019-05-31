@@ -83,7 +83,7 @@ public class ArtistResource {
   @DELETE
   @Path("/{id}")
   public Response deleteArtist(@PathParam("id") UUID id) {
-    artists.removeIf(x -> artists.contains(new Artist(id)));
+    artists.remove((new Artist(id)));
     return Response.noContent().build();
   }
 }
