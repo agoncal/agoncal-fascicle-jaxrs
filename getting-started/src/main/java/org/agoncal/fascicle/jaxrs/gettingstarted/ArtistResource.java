@@ -35,6 +35,8 @@ public class ArtistResource {
   ));
 
   /**
+   * curl http://localhost:8080/cdbookstore/artists
+   * curl http://localhost:8080/cdbookstore/artists | jq
    * curl http://localhost:8080/cdbookstore/artists -v
    * curl -X GET http://localhost:8080/cdbookstore/artists -v
    * curl -X GET -H "Accept: application/json" http://localhost:8080/cdbookstore/artists -v
@@ -46,6 +48,8 @@ public class ArtistResource {
 
   /**
    * curl http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456
+   * curl http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456 | jq
+   * curl http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456 -v
    * curl -X GET http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456
    */
   @GET
@@ -59,6 +63,7 @@ public class ArtistResource {
   }
 
   /**
+   * curl http://localhost:8080/cdbookstore/artists/count
    * curl http://localhost:8080/cdbookstore/artists/count -v
    * curl -X GET -H "Accept: text/plain" http://localhost:8080/cdbookstore/artists/count -v
    */
@@ -69,6 +74,9 @@ public class ArtistResource {
     return artists.size();
   }
 
+  /**
+   * curl -d '{"id":"8b3445fe-a0f8-4189-b39c-4c35dcd685b2", "firstName":"George", "lastName":"Martin"}' -X POST -H "Content-Type: application/json" http://localhost:8080/cdbookstore/artists -v
+   */
   @POST
   public Response createArtist(@Context UriInfo uriInfo, Artist artist) {
     artist.setId(UUID.randomUUID());
@@ -78,6 +86,7 @@ public class ArtistResource {
   }
 
   /**
+   * curl -X DELETE http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456
    * curl -X DELETE http://localhost:8080/cdbookstore/artists/e3d65ee3-7580-4dc1-b975-250cf7b8a456 -v
    */
   @DELETE

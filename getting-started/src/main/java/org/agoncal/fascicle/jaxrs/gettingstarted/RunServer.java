@@ -8,16 +8,16 @@ import java.io.IOException;
 import java.net.URI;
 
 /**
- * Main class.
+ * RunServer class.
  */
-public class Main {
+public class RunServer {
 
   private static final String BASE_URI = "http://localhost:8080/cdbookstore/";
 
   public static void main(String[] args) throws IOException {
     ResourceConfig rc = new ResourceConfig().packages("org.agoncal.fascicle.jaxrs.gettingstarted");
     HttpServer server = GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
-    System.out.println("Jersey app started at " + BASE_URI);
+    System.out.println("JAX-RS application started at " + BASE_URI);
     System.in.read();
     server.shutdown();
   }
