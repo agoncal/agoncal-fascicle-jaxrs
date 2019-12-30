@@ -34,7 +34,7 @@ public class AuthorResourceTest extends JerseyTest {
   }
 
   @Test
-  public void shouldGetAuthor() {
+  public void shouldGetAnAuthor() {
     // tag::adocShouldGetAuthor[]
     String response = target("/authors/0").request().get(String.class);
     assertEquals("Isaac Asimov", response);
