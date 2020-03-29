@@ -18,12 +18,12 @@ public class ItemRestService {
   @GET
   public Items getItems() {
     // ...
-    // tag::adocsskip[]
+    // tag::adocSkip[]
     Items items = new Items();
     items.add(new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
     items.add(new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
     return items;
-    // end::adocsskip[]
+    // end::adocSkip[]
   }
 }
 // end::adocSnippet[]
