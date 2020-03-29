@@ -1,0 +1,13 @@
+.
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └─ org/agoncal/fascicle/jaxrs/gettingstarted
+│   │   │       ├─ Artist.java
+│   │   │       ├─ ArtistResource.java
+│   │   │       └─ RunServer.java
+│   └── test
+│       └─ java
+│           └─ org/agoncal/fascicle/jaxrs/gettingstarted
+│               └─ ArtistResourceTest.java
+└─ pom.xml
