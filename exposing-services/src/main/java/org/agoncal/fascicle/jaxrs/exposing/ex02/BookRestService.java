@@ -19,7 +19,7 @@ import java.net.URI;
  *         http://www.antoniogoncalves.org
  */
 // TODO get rid of JTA + JPA, turn to JSon
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Path("/books")
 @Transactional
 public class BookRestService {
@@ -70,4 +70,4 @@ public class BookRestService {
     return Response.noContent().build();
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

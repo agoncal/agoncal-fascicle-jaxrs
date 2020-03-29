@@ -8,9 +8,9 @@ import javax.ws.rs.core.Application;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @ApplicationPath("/api")
 public class ApplicationConfig extends Application {
 
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

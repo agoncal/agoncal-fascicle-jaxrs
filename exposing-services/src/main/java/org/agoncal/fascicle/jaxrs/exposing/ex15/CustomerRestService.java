@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Path("/customers")
 public class CustomerRestService {
 
@@ -26,7 +26,7 @@ public class CustomerRestService {
       throw new WebApplicationException(Response.Status.NOT_FOUND);
     return customer;
   }
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   private CustomerService customerService = new CustomerService();
 
@@ -35,6 +35,6 @@ public class CustomerRestService {
       return null;
     }
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

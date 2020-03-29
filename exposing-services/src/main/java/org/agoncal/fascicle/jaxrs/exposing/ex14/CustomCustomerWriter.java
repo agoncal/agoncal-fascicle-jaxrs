@@ -18,7 +18,7 @@ import java.lang.reflect.Type;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Provider
 @Produces("custom/format")
 public class CustomCustomerWriter implements MessageBodyWriter<Customer> {
@@ -42,4 +42,4 @@ public class CustomCustomerWriter implements MessageBodyWriter<Customer> {
     return customer.getId().length() + 1 + customer.getFirstName().length() + 1 + customer.getLastName().length();
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

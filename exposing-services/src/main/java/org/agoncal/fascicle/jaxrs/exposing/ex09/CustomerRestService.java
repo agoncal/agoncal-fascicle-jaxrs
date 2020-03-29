@@ -11,7 +11,7 @@ import javax.ws.rs.core.Response;
  *         http://www.antoniogoncalves.org
  *         --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Path("/customers")
 public class CustomerRestService {
 
@@ -19,31 +19,31 @@ public class CustomerRestService {
   @Produces(MediaType.TEXT_PLAIN)
   public Response getAsPlainText() {
     // ...
-    // tag::adocskip1[]
+    // tag::adocSkip1[]
     return Response.ok(new Customer("John", "Smith", "jsmith@gmail.com", "1234565").toString()).build();
-    // end::adocskip1[]
+    // end::adocSkip1[]
   }
 
   @GET
   @Produces(MediaType.TEXT_HTML)
   public Response getAsHtml() {
     // ...
-    // tag::adocskip2[]
+    // tag::adocSkip2[]
     final StringBuilder sb = new StringBuilder();
     sb.append("<h1>Customer</h1><p>");
     sb.append(new Customer("John", "Smith", "jsmith@gmail.com", "1234565").toString());
     sb.append("</p><hr/>");
     return Response.ok(sb.toString()).build();
-    // end::adocskip2[]
+    // end::adocSkip2[]
   }
 
   @GET
   @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
   public Response getAsJsonAndXML() {
     // ...
-    // tag::adocskip3[]
+    // tag::adocSkip3[]
     return Response.ok(new Customer("John", "Smith", "jsmith@gmail.com", "1234565")).build();
-    // end::adocskip3[]
+    // end::adocSkip3[]
   }
 
   @PUT
@@ -52,4 +52,4 @@ public class CustomerRestService {
     // ...
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

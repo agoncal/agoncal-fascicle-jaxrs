@@ -12,7 +12,7 @@ import java.util.List;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @XmlRootElement
 @XmlSeeAlso(Book.class)
 public class Books extends ArrayList<Book> {
@@ -34,4 +34,4 @@ public class Books extends ArrayList<Book> {
     this.addAll(books);
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

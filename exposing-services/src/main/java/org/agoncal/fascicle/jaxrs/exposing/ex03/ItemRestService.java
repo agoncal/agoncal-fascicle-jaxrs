@@ -11,7 +11,7 @@ import javax.ws.rs.Path;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Path("/items")
 public class ItemRestService {
 
@@ -26,4 +26,4 @@ public class ItemRestService {
     // end::adocsskip[]
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

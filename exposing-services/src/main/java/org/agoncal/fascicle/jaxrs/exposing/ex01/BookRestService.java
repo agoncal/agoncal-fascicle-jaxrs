@@ -9,7 +9,7 @@ import javax.ws.rs.Produces;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Path("/book")
 public class BookRestService {
 
@@ -19,4 +19,4 @@ public class BookRestService {
     return "H2G2";
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]
