@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
  */
 // tag::adocSnippet[]
 @Path("/book")
-public class BookRestService {
+public class BookResource {
 
   @GET
   @Produces("text/plain")

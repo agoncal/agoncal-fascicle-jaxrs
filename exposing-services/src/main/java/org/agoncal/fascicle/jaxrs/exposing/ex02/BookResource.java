@@ -18,11 +18,10 @@ import java.net.URI;
  * @author Antonio Goncalves
  *         http://www.antoniogoncalves.org
  */
-// TODO get rid of JTA + JPA, turn to JSon
 // tag::adocSnippet[]
 @Path("/books")
 @Transactional
-public class BookRestService {
+public class BookResource {
 
   @Context
   private UriInfo uriInfo;
@@ -31,7 +30,7 @@ public class BookRestService {
   private EntityManager em;
 
   @GET
-  @Produces(MediaType.APPLICATION_XML)
+  @Produces(MediaType.APPLICATION_JSON)
   public Books getAllBooks() {
     TypedQuery<Book> query = em.createNamedQuery(Book.FIND_ALL, Book.class);
     Books books = new Books(query.getResultList());
@@ -40,13 +39,13 @@ public class BookRestService {
 
   @GET
   @Path("{id}")
-  @Produces(MediaType.APPLICATION_XML)
+  @Produces(MediaType.APPLICATION_JSON)
   public Book getBook(@PathParam("id") Long bookId) {
     return em.find(Book.class, bookId);
   }
 
   @POST
-  @Consumes(MediaType.APPLICATION_XML)
+  @Consumes(MediaType.APPLICATION_JSON)
   public Response createBook(Book book) {
     em.persist(book);
     URI bookUri = uriInfo.getAbsolutePathBuilder().path(book.getId().toString()).build();
