@@ -13,7 +13,7 @@ import javax.ws.rs.Path;
  */
 // tag::adocSnippet[]
 @Path("/items")
-public class ItemRestService {
+public class ItemResource {
 
   @GET
   public Items getItems() {

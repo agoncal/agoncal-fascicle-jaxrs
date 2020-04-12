@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
  */
 // tag::adocSnippet[]
 @Path("/items")
-public class ItemRestService {
+public class ItemResource {
 
   @GET
   public Items getItems() {

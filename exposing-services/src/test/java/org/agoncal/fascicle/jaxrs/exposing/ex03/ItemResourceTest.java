@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
  * http://www.antoniogoncalves.org
  * --
  */
-public class ItemRestServiceTest extends JerseyTest {
+public class ItemResourceTest extends JerseyTest {
 
   // ======================================
   // =        Overridden Methods          =
@@ -22,7 +22,7 @@ public class ItemRestServiceTest extends JerseyTest {
 
   @Override
   protected Application configure() {
-    return new ResourceConfig(ItemRestService.class);
+    return new ResourceConfig(ItemResource.class);
   }
 
   // ======================================
