@@ -15,7 +15,7 @@ import java.net.URI;
  */
 // tag::adocSnippet[]
 @Path("/customers")
-public class CustomerRestService {
+public class CustomerResource {
 
   @GET
   public Response getCustomers() {
@@ -44,7 +44,7 @@ public class CustomerRestService {
   public Response createCustomer(Customer customer) {
     // tag::adocSkip3[]
     System.out.println("createCustomer " + customer);
-    URI createdCustomerURI = UriBuilder.fromResource(CustomerRestService.class).path("1334").build();
+    URI createdCustomerURI = UriBuilder.fromResource(CustomerResource.class).path("1334").build();
     // end::adocSkip3[]
     // ...
     return Response.created(createdCustomerURI).build();
