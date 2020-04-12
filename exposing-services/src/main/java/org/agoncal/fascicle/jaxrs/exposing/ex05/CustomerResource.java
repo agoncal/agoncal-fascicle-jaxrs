@@ -16,7 +16,7 @@ import java.util.List;
  */
 // tag::adocSnippet[]
 @Path("/customers")
-public class CustomerRestService {
+public class CustomerResource {
 
   @GET
   @Path("search/{text}")

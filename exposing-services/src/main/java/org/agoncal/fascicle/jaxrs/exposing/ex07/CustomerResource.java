@@ -12,7 +12,7 @@ import javax.ws.rs.Path;
  */
 // tag::adocSnippet[]
 @Path("/customers")
-public class CustomerRestService {
+public class CustomerResource {
 
   @GET
   @Path("cookie")

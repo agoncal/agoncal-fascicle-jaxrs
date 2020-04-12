@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jaxrs.exposing.ex05;
+package org.agoncal.fascicle.jaxrs.exposing.ex06;
 
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class CustomerRestServiceTest  extends JerseyTest {
+public class CustomerResourceTest extends JerseyTest {
 
   // ======================================
   // =        Overridden Methods          =
@@ -22,7 +22,7 @@ public class CustomerRestServiceTest  extends JerseyTest {
 
   @Override
   protected Application configure() {
-    return new ResourceConfig(CustomerRestService.class);
+    return new ResourceConfig(CustomerResource.class);
   }
 
   // ======================================
@@ -30,20 +30,14 @@ public class CustomerRestServiceTest  extends JerseyTest {
   // ======================================
 
   @Test
-  public void shouldCheckSearchCustomerURI() {
-    Response response = target("/customers/search/smith").request().get();
+  public void shouldCheckGetCustomerByZipCodeCityURI() {
+    Response response = target("/customers").queryParam("zip", 75011L).queryParam("city", "Lisbon").request().get();
     assertEquals(200, response.getStatus());
   }
 
   @Test
-  public void shouldCheckGetCustomerByLoginURI() {
-    Response response = target("/customers/foobarsmith").request().get();
-    assertEquals(200, response.getStatus());
-  }
-
-  @Test
-  public void shouldCheckGetCustomerByIdURI() {
-    Response response = target("/customers/12345").request().get();
+  public void shouldCheckGetCustomerByFirstnameNameURI() {
+    Response response = target("/customers/search;firstname=Antonio;surname=Goncalves").request().get();
     assertEquals(200, response.getStatus());
   }
 }

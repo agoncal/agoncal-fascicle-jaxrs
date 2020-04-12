@@ -1,8 +1,11 @@
-package org.agoncal.fascicle.jaxrs.exposing.ex08;
+package org.agoncal.fascicle.jaxrs.exposing.ex06;
 
 import org.agoncal.fascicle.jaxrs.exposing.Customer;
 
-import javax.ws.rs.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.MatrixParam;
+import javax.ws.rs.Path;
+import javax.ws.rs.QueryParam;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,11 +17,11 @@ import java.util.List;
  */
 // tag::adocSnippet[]
 @Path("/customers")
-public class CustomerRestService {
+public class CustomerResource {
 
   @GET
-  public List<Customer> getCustomersByZipCodeCity(@QueryParam("zip") Long zip, @DefaultValue("Paris") @QueryParam("city") String city) {
-    // ...
+  public List<Customer> getCustomersByZipCodeCity(@QueryParam("zip") Long zip, @QueryParam("city") String city) {
+    // URI : /customer?zip=75012&city=Paris
     // tag::adocSkip1[]
     System.out.println("getCustomerByZipCodeCity : " + zip + " - " + city);
     List<Customer> customers = new ArrayList<>();
@@ -30,8 +33,8 @@ public class CustomerRestService {
 
   @GET
   @Path("search")
-  public List<Customer> getCustomersByFirstnameName(@MatrixParam("firstname") String firstname, @DefaultValue("Smith") @MatrixParam("surname") String surname) {
-    // ...
+  public List<Customer> getCustomersByFirstnameName(@MatrixParam("firstname") String firstname, @MatrixParam("surname") String surname) {
+    // URI : /customer/search;firstname=Antonio;surname=Goncalves
     // tag::adocSkip2[]
     System.out.println("getCustomerByFirstnameName : " + firstname + " - " + surname);
     List<Customer> customers = new ArrayList<>();
