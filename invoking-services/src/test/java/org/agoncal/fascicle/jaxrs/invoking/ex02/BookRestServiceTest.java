@@ -19,6 +19,7 @@ import static org.junit.Assert.assertTrue;
  * http://www.antoniogoncalves.org
  * --
  */
+// @formatter:off
 public class BookRestServiceTest extends JerseyTest {
 
   // ======================================

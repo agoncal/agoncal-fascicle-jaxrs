@@ -21,6 +21,7 @@ import static org.junit.Assert.assertTrue;
  * http://www.antoniogoncalves.org
  * --
  */
+// @formatter:off
 public class CustomerResourceTest extends JerseyTest {
 
   // ======================================
@@ -79,7 +80,11 @@ public class CustomerResourceTest extends JerseyTest {
   @Test
   public void shouldPingOne() {
 // tag::adoconeline[]
-    Response response = ClientBuilder.newClient().target("http://localhost:9998/customers").request(MediaType.TEXT_PLAIN).get();
+    Response response = ClientBuilder
+      .newClient()
+      .target("http://localhost:9998/customers")
+      .request(MediaType.TEXT_PLAIN)
+      .get();
 // end::adoconeline[]
     assertEquals(200, response.getStatus());
   }
