@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class CustomerRestServiceTest extends JerseyTest {
+public class CustomerResourceTest extends JerseyTest {
 
   // ======================================
   // =             Attributes             =
@@ -33,7 +33,7 @@ public class CustomerRestServiceTest extends JerseyTest {
 
   @Override
   protected Application configure() {
-    return new ResourceConfig(CustomerRestService.class, MOXyJsonProvider.class);
+    return new ResourceConfig(CustomerResource.class, MOXyJsonProvider.class);
   }
 
   // ======================================

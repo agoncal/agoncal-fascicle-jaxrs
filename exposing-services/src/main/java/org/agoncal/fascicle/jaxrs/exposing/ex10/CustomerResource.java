@@ -15,7 +15,7 @@ import javax.ws.rs.core.Response;
  */
 // tag::adocSnippet[]
 @Path("/customers")
-public class CustomerRestService {
+public class CustomerResource {
 
   @GET
   public String getAsPlainText() {
