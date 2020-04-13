@@ -14,7 +14,7 @@ import java.net.URI;
  * --
  */
 @Path("/customers")
-public class CustomerRestService {
+public class CustomerResource {
 
   // ======================================
   // =           Public Methods           =
@@ -29,7 +29,7 @@ public class CustomerRestService {
   @POST
   @Consumes("custom/format")
   public Response createCustomerCustom(Customer customer) {
-    URI customerURI = UriBuilder.fromResource(CustomerRestService.class).path(customer.getId()).build();
+    URI customerURI = UriBuilder.fromResource(CustomerResource.class).path(customer.getId()).build();
     return Response.created(customerURI).build();
   }
 }

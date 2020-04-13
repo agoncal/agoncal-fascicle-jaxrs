@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
  * http://www.antoniogoncalves.org
  * --
  */
-public class CustomerRestServiceTest extends JerseyTest {
+public class CustomerResourceTest extends JerseyTest {
 
   // ======================================
   // =        Overridden Methods          =
@@ -29,7 +29,7 @@ public class CustomerRestServiceTest extends JerseyTest {
 
   @Override
   protected Application configure() {
-    return new ResourceConfig(CustomerRestService.class, CustomCustomerWriter.class);
+    return new ResourceConfig(CustomerResource.class, CustomCustomerWriter.class);
   }
 
   // ======================================
