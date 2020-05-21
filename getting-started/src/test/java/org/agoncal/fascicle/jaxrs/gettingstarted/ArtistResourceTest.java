@@ -16,6 +16,7 @@ import static org.junit.Assert.assertEquals;
  * http://www.antoniogoncalves.org
  * --
  */
+//@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 // tag::adocBegin[]
 public class ArtistResourceTest extends JerseyTest {
 
@@ -30,6 +31,7 @@ public class ArtistResourceTest extends JerseyTest {
   // ======================================
 
   @Test
+//  @Order(1)
   public void shouldGetAllArtists() {
     // tag::adocShouldGetAllArtists[]
     Response response = target("/artists").request().get();
@@ -41,6 +43,7 @@ public class ArtistResourceTest extends JerseyTest {
   }
 
   @Test
+//  @Order(2)
   public void shouldGetArtist() {
     // tag::adocShouldGetArtist[]
     String artists = target("/artists").request().get(String.class);
@@ -54,6 +57,7 @@ public class ArtistResourceTest extends JerseyTest {
   }
 
   @Test
+//  @Order(3)
   public void shouldCountArtist() {
     // tag::shouldCountArtist[]
     Response response = target("/artists/count").request().get();
@@ -62,6 +66,7 @@ public class ArtistResourceTest extends JerseyTest {
   }
 
   @Test
+//  @Order(4)
   public void shouldCreateArtist() {
     // tag::adocShouldCreateArtist[]
     Integer nbArtists = target("/artists/count").request().get(Integer.class);
@@ -72,7 +77,22 @@ public class ArtistResourceTest extends JerseyTest {
     // end::adocShouldCreateArtist[]
   }
 
+//  @Test
+//  @Order(5)
+//  public void shouldCountArtistAfterCreate() {
+//    given().
+//    when().
+//      get("/artists/count").
+//    then().
+//      assertThat().
+//        statusCode(is(200)).
+//      and().
+//        body(is("5"));
+//  }
+
+
   @Test
+//  @Order(6)
   public void shouldDeleteArtist() {
     // tag::adocShouldDeleteArtist[]
     Integer nbArtists = target("/artists/count").request().get(Integer.class);
@@ -83,4 +103,17 @@ public class ArtistResourceTest extends JerseyTest {
     assertEquals(new Integer(nbArtists - 1), target("/artists/count").request().get(Integer.class));
     // end::adocShouldDeleteArtist[]
   }
+
+//  @Test
+//  @Order(7)
+//  public void shouldCountArtistAfterDelete() {
+//    given().
+//    when().
+//      get("/artists/count").
+//    then().
+//      assertThat().
+//        statusCode(is(200)).
+//      and().
+//        body(is("4"));
+//  }
 }
