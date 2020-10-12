@@ -31,7 +31,7 @@
     <!-- Test -->
     <version.moxy>2.7.4</version.moxy>
     <!-- TODO When Jersey supports JUnit 5 <version.junit>5.4.2</version.junit>-->
-    <version.junit>4.12</version.junit>
+    <version.junit>4.13.1</version.junit>
     <!-- Core Maven Plugins -->
     <version.antrun.plugin>1.8</version.antrun.plugin>
     <version.archetype.plugin>3.1.0</version.archetype.plugin>
