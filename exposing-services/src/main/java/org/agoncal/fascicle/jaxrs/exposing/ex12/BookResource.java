@@ -10,7 +10,7 @@ import javax.ws.rs.Produces;
  *         --
  */
 @Path("/book")
-public class BookRestService {
+public class BookResource {
 
     // ======================================
     // =           Public Methods           =

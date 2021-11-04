@@ -21,7 +21,7 @@ public class ApplicationConfig extends Application {
 
   public ApplicationConfig() {
     HashSet<Class<?>> c = new HashSet<>();
-    c.add(BookRestService.class);
+    c.add(BookResource.class);
     c.add(MOXyJsonProvider.class);
     classes = Collections.unmodifiableSet(c);
   }

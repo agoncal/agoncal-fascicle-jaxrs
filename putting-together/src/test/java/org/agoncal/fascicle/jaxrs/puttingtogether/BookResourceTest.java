@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
  * --
  */
 // tag::adocSnippet[]
-public class BookRestServiceTest extends JerseyTest {
+public class BookResourceTest extends JerseyTest {
 
   private static final String XML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><book><description>Science fiction comedy book</description><illustrations>false</illustrations><isbn>1-84023-742-2</isbn><nbOfPage>354</nbOfPage><price>12.5</price><title>The Hitchhiker's Guide to the Galaxy</title></book>";
 

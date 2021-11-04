@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
  * --
  */
 @Path("/books")
-public class BookRestService {
+public class BookResource {
 
   // ======================================
   // =           Public Methods           =

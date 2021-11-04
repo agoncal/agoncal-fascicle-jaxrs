@@ -35,13 +35,13 @@ public class URIBuilderTest {
       .build("book", "Goncalves");
     assertEquals("http://www.cdbookstore.com/book?author=Goncalves", uri.toString());
 
-    uri = UriBuilder.fromResource(BookRestService.class).path("1234").build();
+    uri = UriBuilder.fromResource(BookResource.class).path("1234").build();
     assertEquals("/book/1234", uri.toString());
 
-    uri = UriBuilder.fromResource(BookRestService.class).host("www.cdbookstore.com").path("book").path("1234").build();
+    uri = UriBuilder.fromResource(BookResource.class).host("www.cdbookstore.com").path("book").path("1234").build();
     assertEquals("//www.cdbookstore.com/book/book/1234", uri.toString());
 
-    uri = UriBuilder.fromResource(BookRestService.class).host("www.cdbookstore.com").port(8282).path("book").path("1234").build();
+    uri = UriBuilder.fromResource(BookResource.class).host("www.cdbookstore.com").port(8282).path("book").path("1234").build();
     assertEquals("//www.cdbookstore.com:8282/book/book/1234", uri.toString());
 
     uri = UriBuilder.fromUri("http://www.cdbookstore.com").fragment("book").build();

@@ -21,7 +21,7 @@ import java.net.URI;
 @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 @Transactional
-public class BookRestService {
+public class BookResource {
 
   @PersistenceContext(unitName = "jaxrsPU")
   private EntityManager em;

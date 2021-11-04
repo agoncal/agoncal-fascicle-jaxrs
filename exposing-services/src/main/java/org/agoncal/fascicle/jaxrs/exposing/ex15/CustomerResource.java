@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
  */
 // tag::adocSnippet[]
 @Path("/customers")
-public class CustomerRestService {
+public class CustomerResource {
 
   @Path("{customerId}")
   public Customer getCustomer(@PathParam("customerId") Long customerId) {
