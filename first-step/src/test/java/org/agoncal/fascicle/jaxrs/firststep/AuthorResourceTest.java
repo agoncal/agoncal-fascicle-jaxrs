@@ -29,7 +29,7 @@ public class AuthorResourceTest extends JerseyTest {
   public void shouldGetAllAuthors() {
     // tag::adocShouldGetAllAuthors[]
     String response = target("/authors").request().get(String.class);
-    assertEquals("Isaac Asimov, Ray Bradbury, Douglas Adams", response);
+    assertEquals("Isaac Asimov, Nora Jemisin, Douglas Adams", response);
     // end::adocShouldGetAllAuthors[]
   }
 
