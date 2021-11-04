@@ -122,13 +122,23 @@
         <version>${version.moxy}</version>
         <scope>test</scope>
       </dependency>
+      <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>1.4.197</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>org.eclipse.persistence.jpa</artifactId>
+        <version>${version.moxy}</version>
+      </dependency>
 <!--      TODO When Jersey supports JUnit 5-->
-<!--      <dependency>-->
-<!--        <groupId>org.junit.jupiter</groupId>-->
-<!--        <artifactId>junit-jupiter-engine</artifactId>-->
-<!--        <version>${version.junit}</version>-->
-<!--        <scope>test</scope>-->
-<!--      </dependency>-->
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>${version.junit}</version>
+        <scope>test</scope>
+      </dependency>
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>

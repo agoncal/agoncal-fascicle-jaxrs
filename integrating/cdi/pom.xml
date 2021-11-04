@@ -4,16 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.agoncal.fascicle.jpa.integrating</groupId>
+  <groupId>org.agoncal.fascicle.jaxrs.integrating</groupId>
   <artifactId>cdi</artifactId>
-  <version>2.2</version>
+  <version>2.1</version>
   <packaging>jar</packaging>
   <name>JAX-RS :: Integrating other Technologies :: CDI</name>
 
   <parent>
-    <groupId>org.agoncal.fascicle.jpa</groupId>
+    <groupId>org.agoncal.fascicle.jaxrs</groupId>
     <artifactId>integrating</artifactId>
-    <version>2.2</version>
+    <version>2.1</version>
   </parent>
 
   <properties>
