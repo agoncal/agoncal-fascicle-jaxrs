@@ -6,13 +6,13 @@
 
   <groupId>org.agoncal.fascicle.jaxrs</groupId>
   <artifactId>understanding</artifactId>
-  <version>2.1</version>
+  <version>3.1</version>
   <name>JAX-RS :: Understanding</name>
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
     <artifactId>jaxrs</artifactId>
-    <version>2.1</version>
+    <version>3.1</version>
   </parent>
 
   <dependencies>
@@ -36,8 +36,9 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 

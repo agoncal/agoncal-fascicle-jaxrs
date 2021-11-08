@@ -2,7 +2,7 @@ package org.agoncal.fascicle.jaxrs.exposing.ex12;
 
 import org.junit.Test;
 
-import javax.ws.rs.core.UriBuilder;
+import jakarta.ws.rs.core.UriBuilder;
 import java.net.URI;
 
 import static org.junit.Assert.assertEquals;

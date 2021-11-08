@@ -3,8 +3,8 @@ package org.agoncal.fascicle.jaxrs.exposing.ex03;
 import org.agoncal.fascicle.jaxrs.exposing.Book;
 import org.agoncal.fascicle.jaxrs.exposing.Items;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
 
 /**
  * @author Antonio Goncalves

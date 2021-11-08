@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.jaxrs.puttingtogether;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author Antonio Goncalves

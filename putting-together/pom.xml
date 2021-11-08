@@ -7,21 +7,21 @@
 
   <groupId>org.agoncal.fascicle.jaxrs</groupId>
   <artifactId>putting-together</artifactId>
-  <version>2.1</version>
+  <version>3.1</version>
   <!-- tag::adocSkip[] -->
   <name>JAX-RS :: Putting It All Together</name>
 
   <parent>
     <groupId>org.agoncal.fascicle</groupId>
     <artifactId>jaxrs</artifactId>
-    <version>2.1</version>
+    <version>3.1</version>
   </parent>
   <!-- end::adocSkip[] -->
 
   <dependencies>
     <dependency>
-      <groupId>javax.ws.rs</groupId>
-      <artifactId>javax.ws.rs-api</artifactId>
+      <groupId>jakarta.ws.rs</groupId>
+      <artifactId>jakarta.ws.rs-api</artifactId>
     </dependency>
     <dependency>
       <groupId>javax.persistence</groupId>

@@ -2,10 +2,10 @@ package org.agoncal.fascicle.jaxrs.exposing.ex04;
 
 import org.agoncal.fascicle.jaxrs.exposing.*;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.core.Response;
 
 /**
  * @author Antonio Goncalves

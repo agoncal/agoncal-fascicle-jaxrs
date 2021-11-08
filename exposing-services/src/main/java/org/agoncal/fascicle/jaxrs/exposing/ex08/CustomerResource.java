@@ -2,7 +2,7 @@ package org.agoncal.fascicle.jaxrs.exposing.ex08;
 
 import org.agoncal.fascicle.jaxrs.exposing.Customer;
 
-import javax.ws.rs.*;
+import jakarta.ws.rs.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
