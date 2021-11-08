@@ -31,8 +31,8 @@
     <!-- Test -->
     <version.json-path>2.4.0</version.json-path>
     <version.moxy>2.7.4</version.moxy>
-    <!-- TODO When Jersey supports JUnit 5 <version.junit>5.4.2</version.junit>-->
     <version.junit>5.8.1</version.junit>
+    <version.restassured>4.4.0</version.restassured>
     <!-- Core Maven Plugins -->
     <version.antrun.plugin>3.0.0</version.antrun.plugin>
     <version.archetype.plugin>3.2.0</version.archetype.plugin>
@@ -138,6 +138,18 @@
         <groupId>org.eclipse.persistence</groupId>
         <artifactId>org.eclipse.persistence.jpa</artifactId>
         <version>${version.moxy}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.rest-assured</groupId>
+        <artifactId>rest-assured</artifactId>
+        <version>${version.restassured}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.rest-assured</groupId>
+        <artifactId>json-path</artifactId>
+        <version>${version.restassured}</version>
+        <scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>

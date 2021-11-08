@@ -1,22 +1,25 @@
 package org.agoncal.fascicle.jaxrs.gettingstarted;
 
 import com.jayway.jsonpath.JsonPath;
-import org.glassfish.jersey.server.ResourceConfig;
-import org.glassfish.jersey.test.JerseyTest;
-import org.junit.Test;
-
 import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.Response;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.test.JerseyTest;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 /**
  * @author Antonio Goncalves
  * http://www.antoniogoncalves.org
  * --
  */
-//@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 // tag::adocBegin[]
 public class ArtistResourceTest extends JerseyTest {
 
@@ -31,7 +34,7 @@ public class ArtistResourceTest extends JerseyTest {
   // ======================================
 
   @Test
-//  @Order(1)
+  @Order(1)
   public void shouldGetAllArtists() {
     // tag::adocShouldGetAllArtists[]
     Response response = target("/artists").request().get();
@@ -43,7 +46,7 @@ public class ArtistResourceTest extends JerseyTest {
   }
 
   @Test
-//  @Order(2)
+  @Order(2)
   public void shouldGetArtist() {
     // tag::adocShouldGetArtist[]
     String artists = target("/artists").request().get(String.class);
@@ -57,7 +60,7 @@ public class ArtistResourceTest extends JerseyTest {
   }
 
   @Test
-//  @Order(3)
+  @Order(3)
   public void shouldCountArtist() {
     // tag::shouldCountArtist[]
     Response response = target("/artists/count").request().get();
@@ -66,7 +69,7 @@ public class ArtistResourceTest extends JerseyTest {
   }
 
   @Test
-//  @Order(4)
+  @Order(4)
   public void shouldCreateArtist() {
     // tag::adocShouldCreateArtist[]
     Integer nbArtists = target("/artists/count").request().get(Integer.class);
@@ -92,7 +95,7 @@ public class ArtistResourceTest extends JerseyTest {
 
 
   @Test
-//  @Order(6)
+  @Order(6)
   public void shouldDeleteArtist() {
     // tag::adocShouldDeleteArtist[]
     Integer nbArtists = target("/artists/count").request().get(Integer.class);
