@@ -1,18 +1,17 @@
 package org.agoncal.fascicle.jaxrs.invoking.ex02;
 
-import org.agoncal.fascicle.jaxrs.invoking.Book;
-import org.glassfish.jersey.server.ResourceConfig;
-import org.glassfish.jersey.test.JerseyTest;
-import org.junit.Test;
-
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.agoncal.fascicle.jaxrs.invoking.Book;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.test.JerseyTest;
+import org.junit.jupiter.api.Test;
 
 import static jakarta.ws.rs.core.Response.Status.OK;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Antonio Goncalves

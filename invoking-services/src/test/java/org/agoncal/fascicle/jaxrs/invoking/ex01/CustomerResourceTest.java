@@ -1,20 +1,25 @@
 package org.agoncal.fascicle.jaxrs.invoking.ex01;
 
-import org.agoncal.fascicle.jaxrs.invoking.Customer;
-import org.glassfish.jersey.server.ResourceConfig;
-import org.glassfish.jersey.test.JerseyTest;
-import org.junit.Ignore;
-import org.junit.Test;
-
-import jakarta.ws.rs.client.*;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.agoncal.fascicle.jaxrs.invoking.Customer;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.test.JerseyTest;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 /**
  * @author Antonio Goncalves
@@ -90,7 +95,7 @@ public class CustomerResourceTest extends JerseyTest {
   }
 
   @Test
-  @Ignore // TODO
+  @Disabled // TODO
   public void shouldCreateCustomerCustom() {
 // tag::adocclientprop[]
     Client client = ClientBuilder.newClient();

@@ -1,7 +1,6 @@
 package org.agoncal.fascicle.jaxrs.puttingtogether;
 
 import org.glassfish.jersey.test.JerseyTest;
-import org.junit.Test;
 
 import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.core.MediaType;

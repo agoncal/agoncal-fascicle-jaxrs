@@ -2,7 +2,6 @@ package org.agoncal.fascicle.jaxrs.understanding;
 
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
-import org.junit.Test;
 
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.Response;

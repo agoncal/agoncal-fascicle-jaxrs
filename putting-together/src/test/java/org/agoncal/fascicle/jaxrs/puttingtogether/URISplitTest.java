@@ -1,7 +1,5 @@
 package org.agoncal.fascicle.jaxrs.puttingtogether;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 
 /**
