@@ -1,11 +1,5 @@
 package org.agoncal.fascicle.jaxrs.exposing.ex02;
 
-import org.agoncal.fascicle.jaxrs.exposing.Book;
-import org.glassfish.jersey.server.ResourceConfig;
-import org.glassfish.jersey.test.JerseyTest;
-import org.junit.Ignore;
-import org.junit.Test;
-
 import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.MediaType;
@@ -13,10 +7,16 @@ import jakarta.ws.rs.core.Response;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
+import org.agoncal.fascicle.jaxrs.exposing.Book;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.test.JerseyTest;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
 import java.io.StringWriter;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Antonio Goncalves
@@ -43,7 +43,7 @@ public class BookResourceTest extends JerseyTest {
   // =              Unit tests            =
   // ======================================
 
-  @Test @Ignore("TODO get rid of JPA, JTA and do JSON")
+  @Test @Disabled("TODO get rid of JPA, JTA and do JSON")
   public void shouldCreateABook() throws JAXBException {
     // given
     Book book = new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false);

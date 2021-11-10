@@ -6,7 +6,6 @@
   <groupId>org.agoncal.fascicle.jaxrs.integrating</groupId>
   <artifactId>jta</artifactId>
   <version>3.1</version>
-  <packaging>jar</packaging>
   <name>JAX-RS :: Integrating other Technologies :: JTA</name>
 
   <parent>

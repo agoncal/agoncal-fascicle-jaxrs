@@ -2,13 +2,13 @@ package org.agoncal.fascicle.jaxrs.exposing.ex01;
 
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Antonio Goncalves
@@ -37,7 +37,7 @@ public class BookResourceTest extends JerseyTest {
 
     String entity = response.readEntity(String.class);
     assertEquals("H2G2", entity);
-    assertEquals("H2G2 is 4 characters", 4, entity.length());
+    assertEquals(4, entity.length(), "H2G2 is 4 characters");
   }
 
   @Test

@@ -76,6 +76,6 @@ public class BookResourceTest extends JerseyTest {
 // tag::adocreadbook[]
     Book body = response.readEntity(Book.class);
 // end::adocreadbook[]
-    assertEquals("The Hitchhiker's Guide to the Galaxy", body.getTitle());
+    assertEquals(body.getTitle(), "The Hitchhiker's Guide to the Galaxy");
   }
 }
