@@ -1,11 +1,11 @@
 package org.agoncal.fascicle.jaxrs.exposing.ex12;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import javax.ws.rs.core.UriBuilder;
+import jakarta.ws.rs.core.UriBuilder;
 import java.net.URI;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Antonio Goncalves
@@ -20,7 +20,7 @@ public class URIBuilderTest {
 
   @Test
   public void shouldBuildURIs() {
-    // tag::adocsnippet[]
+    // tag::adocSnippet[]
     URI uri = UriBuilder.fromUri("http://www.cdbookstore.com").path("book").path("1234").build();
     assertEquals("http://www.cdbookstore.com/book/1234", uri.toString());
 
@@ -35,17 +35,17 @@ public class URIBuilderTest {
       .build("book", "Goncalves");
     assertEquals("http://www.cdbookstore.com/book?author=Goncalves", uri.toString());
 
-    uri = UriBuilder.fromResource(BookRestService.class).path("1234").build();
+    uri = UriBuilder.fromResource(BookResource.class).path("1234").build();
     assertEquals("/book/1234", uri.toString());
 
-    uri = UriBuilder.fromResource(BookRestService.class).host("www.cdbookstore.com").path("book").path("1234").build();
+    uri = UriBuilder.fromResource(BookResource.class).host("www.cdbookstore.com").path("book").path("1234").build();
     assertEquals("//www.cdbookstore.com/book/book/1234", uri.toString());
 
-    uri = UriBuilder.fromResource(BookRestService.class).host("www.cdbookstore.com").port(8282).path("book").path("1234").build();
+    uri = UriBuilder.fromResource(BookResource.class).host("www.cdbookstore.com").port(8282).path("book").path("1234").build();
     assertEquals("//www.cdbookstore.com:8282/book/book/1234", uri.toString());
 
     uri = UriBuilder.fromUri("http://www.cdbookstore.com").fragment("book").build();
     assertEquals("http://www.cdbookstore.com/#book", uri.toString());
-    // end::adocsnippet[]
+    // end::adocSnippet[]
   }
 }

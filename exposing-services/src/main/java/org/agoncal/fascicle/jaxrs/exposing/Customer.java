@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.jaxrs.exposing;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**

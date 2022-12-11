@@ -1,8 +1,8 @@
 package org.agoncal.fascicle.jaxrs.puttingtogether;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlSeeAlso;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @XmlRootElement
 @XmlSeeAlso(Book.class)
 public class Books extends ArrayList<Book> {
@@ -34,4 +34,4 @@ public class Books extends ArrayList<Book> {
     this.addAll(books);
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

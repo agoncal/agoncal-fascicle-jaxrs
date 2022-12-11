@@ -2,8 +2,8 @@ package org.agoncal.fascicle.jaxrs.puttingtogether;
 
 import org.eclipse.persistence.jaxb.rs.MOXyJsonProvider;
 
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+import jakarta.ws.rs.ApplicationPath;
+import jakarta.ws.rs.core.Application;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +13,7 @@ import java.util.Set;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @ApplicationPath("api")
 public class ApplicationConfig extends Application {
 
@@ -21,7 +21,7 @@ public class ApplicationConfig extends Application {
 
   public ApplicationConfig() {
     HashSet<Class<?>> c = new HashSet<>();
-    c.add(BookRestService.class);
+    c.add(BookResource.class);
     c.add(MOXyJsonProvider.class);
     classes = Collections.unmodifiableSet(c);
   }
@@ -31,4 +31,4 @@ public class ApplicationConfig extends Application {
     return classes;
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

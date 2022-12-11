@@ -2,12 +2,12 @@ package org.agoncal.fascicle.jaxrs.exposing.ex14;
 
 import org.agoncal.fascicle.jaxrs.exposing.Customer;
 
-import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.ext.MessageBodyWriter;
-import javax.ws.rs.ext.Provider;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.MultivaluedMap;
+import jakarta.ws.rs.ext.MessageBodyWriter;
+import jakarta.ws.rs.ext.Provider;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.annotation.Annotation;
@@ -18,7 +18,7 @@ import java.lang.reflect.Type;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Provider
 @Produces("custom/format")
 public class CustomCustomerWriter implements MessageBodyWriter<Customer> {
@@ -42,4 +42,4 @@ public class CustomCustomerWriter implements MessageBodyWriter<Customer> {
     return customer.getId().length() + 1 + customer.getFirstName().length() + 1 + customer.getLastName().length();
   }
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

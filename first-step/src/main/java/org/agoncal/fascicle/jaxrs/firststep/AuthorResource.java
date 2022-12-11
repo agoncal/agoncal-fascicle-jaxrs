@@ -1,17 +1,22 @@
 package org.agoncal.fascicle.jaxrs.firststep;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
 
+/**
+ * @author Antonio Goncalves
+ * http://www.antoniogoncalves.org
+ * --
+ */
 // tag::adocSnippet[]
 @Path("/authors")
 @Produces(MediaType.TEXT_PLAIN)
 public class AuthorResource {
 
-  String[] scifiAuthors = {"Isaac Asimov", "Ray Bradbury", "Douglas Adams"};
+  String[] scifiAuthors = {"Isaac Asimov", "Nora Jemisin", "Douglas Adams"};
 
   @GET
   public String getAllScifiAuthors() {

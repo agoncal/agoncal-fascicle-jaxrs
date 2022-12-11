@@ -2,12 +2,12 @@ package org.agoncal.fascicle.jaxrs.exposing.ex14;
 
 import org.agoncal.fascicle.jaxrs.exposing.Customer;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.ext.MessageBodyReader;
-import javax.ws.rs.ext.Provider;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.MultivaluedMap;
+import jakarta.ws.rs.ext.MessageBodyReader;
+import jakarta.ws.rs.ext.Provider;
 import java.io.*;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
  * http://www.antoniogoncalves.org
  * --
  */
-// tag::adocsnippet[]
+// tag::adocSnippet[]
 @Provider
 @Consumes("custom/format")
 public class CustomCustomerReader implements MessageBodyReader<Customer> {
@@ -41,7 +41,7 @@ public class CustomCustomerReader implements MessageBodyReader<Customer> {
 
     return customer;
   }
-  // tag::adocskip[]
+  // tag::adocSkip[]
 
   public String convertStreamToString(InputStream is)
     throws IOException {
@@ -65,6 +65,6 @@ public class CustomCustomerReader implements MessageBodyReader<Customer> {
       return "";
     }
   }
-  // end::adocskip[]
+  // end::adocSkip[]
 }
-// end::adocsnippet[]
+// end::adocSnippet[]

@@ -1,13 +1,12 @@
 package org.agoncal.fascicle.jaxrs.firststep;
 
+import jakarta.ws.rs.core.Application;
+import jakarta.ws.rs.core.Response;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import javax.ws.rs.core.Application;
-import javax.ws.rs.core.Response;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Antonio Goncalves
@@ -29,12 +28,12 @@ public class AuthorResourceTest extends JerseyTest {
   public void shouldGetAllAuthors() {
     // tag::adocShouldGetAllAuthors[]
     String response = target("/authors").request().get(String.class);
-    assertEquals("Isaac Asimov, Ray Bradbury, Douglas Adams", response);
+    assertEquals("Isaac Asimov, Nora Jemisin, Douglas Adams", response);
     // end::adocShouldGetAllAuthors[]
   }
 
   @Test
-  public void shouldGetAuthor() {
+  public void shouldGetAnAuthor() {
     // tag::adocShouldGetAuthor[]
     String response = target("/authors/0").request().get(String.class);
     assertEquals("Isaac Asimov", response);
