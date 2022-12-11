@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jaxrs.firststep;
+package org.agoncal.fascicle.jaxrs.firstlook;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;

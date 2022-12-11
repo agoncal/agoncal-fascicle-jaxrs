@@ -1,7 +1,7 @@
 package org.agoncal.fascicle.jaxrs.exposing;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 /**

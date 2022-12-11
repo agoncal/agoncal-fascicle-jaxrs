@@ -1,4 +1,4 @@
-package org.agoncal.fascicle.jaxrs.firststep;
+package org.agoncal.fascicle.jaxrs.firstlook;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

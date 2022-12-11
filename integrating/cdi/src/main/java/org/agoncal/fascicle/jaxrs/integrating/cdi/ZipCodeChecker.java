@@ -1,6 +1,6 @@
 package org.agoncal.fascicle.jaxrs.integrating.cdi;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import java.util.regex.Pattern;
 
 /**

@@ -4,13 +4,13 @@
  */
 package org.agoncal.fascicle.jaxrs.integrating.cdi;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Disposes;
-import javax.enterprise.inject.Produces;
-import javax.enterprise.inject.spi.BeanManager;
-import javax.inject.Inject;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Disposes;
+import jakarta.enterprise.inject.Produces;
+import jakarta.enterprise.inject.spi.BeanManager;
+import jakarta.inject.Inject;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +25,7 @@ public class EntityManagerFactoryProducer {
   @ApplicationScoped
   public EntityManagerFactory produceEntityManagerFactory() {
     Map<String, Object> props = new HashMap<>();
-    props.put("javax.persistence.bean.manager", beanManager);
+    props.put("jakarta.persistence.bean.manager", beanManager);
     return Persistence.createEntityManagerFactory("cdbookstorePU", props);
   }
 

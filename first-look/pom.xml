@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agoncal.fascicle.jaxrs</groupId>
-  <artifactId>first-step</artifactId>
+  <artifactId>first-look</artifactId>
   <version>3.1</version>
   <name>JAX-RS :: First Step</name>
 
@@ -55,7 +55,7 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <configuration>
-          <mainClass>org.agoncal.fascicle.jaxrs.firststep.Main</mainClass>
+          <mainClass>org.agoncal.fascicle.jaxrs.firstlook.Main</mainClass>
         </configuration>
       </plugin>
     </plugins>
